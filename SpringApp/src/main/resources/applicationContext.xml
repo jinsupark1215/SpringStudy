@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<bean id="mem" class="app.Member"></bean>
+	
+	<context:component-scan base-package="app"></context:component-scan>
+	
+	
+	<!--
+	scope="prototype"
+	<bean id="haramnspeaker" class="app.HarmanSpeaker"></bean>
+	<bean id="sonyspeaker" class="app.SonySpeaker"></bean>
+	
+	
+	<bean id="samsung" class="app.Galaxys10" init-method="init" destroy-method="close">
+		<constructor-arg value="5000" index="0"></constructor-arg>
+		<constructor-arg ref="haramnspeaker" index="1"></constructor-arg>	
+		
+		<property name="price" value="1000"></property>
+	</bean>
+	<bean id="apple" class="app.Apple10">
+		<constructor-arg value="3000" index="0"></constructor-arg>
+		<constructor-arg ref="sonyspeaker" index="1"></constructor-arg>	
+	</bean>
+	-->
+	
+	
+</beans>
