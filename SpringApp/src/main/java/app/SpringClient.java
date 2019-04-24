@@ -18,11 +18,18 @@ public class SpringClient {
 		//System.out.println(m2);
 		
 		Phone p = (Phone) cxt.getBean("samsung");
+		p.powerOn();
+		System.out.println("-----------------");
 		p.volumeUp();
+		System.out.println("-----------------");
 		p.volumeDown();
+		System.out.println("-----------------");
 		
 		Phone p2 = (Phone) cxt.getBean("apple");
+		p2.powerOn();
+		System.out.println("-----------------");
 		p2.volumeUp();
+		System.out.println("-----------------");
 		p2.volumeDown();
 	}
 
