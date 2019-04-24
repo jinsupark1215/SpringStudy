@@ -22,7 +22,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style type="text/css">
 #top{
-	margin-top:10%;
+	margin-top:3%;
 	text-align: center;
 	font-size: 3em;
 	font-weight: bold;
@@ -36,6 +36,7 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container" id="top">메인 페이지</div>
 	<%
 		if(msg != null){
@@ -45,7 +46,7 @@
 		}
 	%>
 	<%
-		if(id.equals("ssafy")){ 
+		if(!id.equals("error")){ 
 	%>
 		<jsp:include page="/WEB-INF/views/LoginSuccess.jsp"></jsp:include>
 	<%
@@ -55,5 +56,6 @@
 	<%
 		}
 	%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

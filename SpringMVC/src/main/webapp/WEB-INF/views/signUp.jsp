@@ -66,9 +66,9 @@
 </script>
 <style type="text/css">
 #box {
-	background-color: purple;
+	background-color: gray;
 	padding-bottom: 3%;
-	margin-top: 5%;
+	margin-top: 3%;
 }
 
 #outer {
@@ -87,6 +87,7 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="container" id="outer">
 			<p class="h3 mb-3 font-weight-normal" id="signText">회원 가입</p>
@@ -141,9 +142,9 @@
 						</button>
 					</div>
 				</div>
-				
 			</form>
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

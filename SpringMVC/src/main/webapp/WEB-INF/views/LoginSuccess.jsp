@@ -21,10 +21,6 @@
 	text-align: center;
 }
 
-a {
-	font-size: 2em;
-}
-
 .btn{
 	text-align: center;
 }
@@ -32,8 +28,7 @@ a {
 </head>
 <body>
 	<div class="container" id="outer">
-		<h1><%=id%> 님 로그인 되었습니다.!!!
-		</h1>
+		<h1><%=id%> 님 로그인 되었습니다.!!!</h1>
 		<div class="col-md-offset-1 col-md-10">
 			<button type="button" class="btn btn-info" onclick="location.href = 'member/mypage'">내 정보 확인</button>
 			<button type="button" class="btn btn-warning" onclick="location.href = 'member/goUpdate'">내 정보 수정</button>

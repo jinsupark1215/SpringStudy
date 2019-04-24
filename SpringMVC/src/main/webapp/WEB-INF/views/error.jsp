@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,7 @@
 #box{
 	background-color: gray;
 	padding-bottom: 3%;
+	margin-top: 3%;
 }
 #outer {
 	background-color: #F5F5F5;
@@ -51,10 +53,11 @@ h1{
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="container" id="outer">
 			<div class="row" id="title">ERROR</div>
-			<h1><%=msg %></h1>
+			<h1>${msg}</h1>
 			<div class="row" id="btnGroup">
 				<div class="col-md-4">
 					<button type="button" class="btn btn-info" onclick="location.href = '../'">확인</button>
@@ -62,5 +65,6 @@ h1{
 			</div>
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

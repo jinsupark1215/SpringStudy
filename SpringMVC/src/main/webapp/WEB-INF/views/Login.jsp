@@ -43,7 +43,7 @@
 </script>
 <style type="text/css">
 #box{
-	background-color: purple;
+	background-color: gray;
 	padding-bottom: 3%;
 }
 #outer {

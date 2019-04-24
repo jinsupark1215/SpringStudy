@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import edu.ssafy.board.dto.Member;
 
-@Repository("MemberRepositoryImpl")
-public class MemberRepositoryImpl implements MemberRepository {
-	private static final Logger logger = LoggerFactory.getLogger(MemberRepositoryImpl.class);
+@Repository("MemberRepositoryImplList")
+public class MemberRepositoryImplList implements MemberRepository {
+	private static final Logger logger = LoggerFactory.getLogger(MemberRepositoryImplList.class);
 	ArrayList<Member> list = new ArrayList<Member>();
 
 	@Override

@@ -3,12 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-	String msg = (String) request.getAttribute("msg");
-	if(msg == null){
-		msg = "에러 페이지 입니다";
-	}
-%>
 <meta charset="UTF-8">
 <title>결과 페이지</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -17,9 +11,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style type="text/css">
 #box{
-	background-color: purple;
+	background-color: gray;
 	padding-bottom: 3%;
-	margin-top: 5%;
+	margin-top: 3%;
 }
 #outer {
 	background-color: #F5F5F5;
@@ -44,9 +38,10 @@ h1{
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="container" id="outer">
-			<h1><%=msg %></h1>
+			<h1>${msg}</h1>
 			<div class="row" id="btnGroup">
 				<div class="col-md-4">
 					<button type="button" class="btn btn-info" onclick="location.href = '../'">확인</button>
@@ -54,5 +49,6 @@ h1{
 			</div>
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

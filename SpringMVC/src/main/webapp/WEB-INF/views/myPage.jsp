@@ -11,9 +11,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style type="text/css">
 #box {
-	background-color: purple;
+	background-color: gray;
 	padding-bottom: 3%;
-	margin-top: 5%;
+	margin-top: 3%;
 }
 
 #outer {
@@ -37,6 +37,7 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="col-md-offset-4 col-md-4" id="outer">
 			<p class="h3 mb-3 font-weight-normal" id="signText">회원 정보 확인</p>
@@ -64,5 +65,6 @@
 			</form>
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>
