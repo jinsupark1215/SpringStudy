@@ -16,7 +16,7 @@ public class MemberServiceImpl implements MemberService {
 	private static final Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 
 	@Autowired
-	@Qualifier("MemberRepositoryImplJDBC")
+	@Qualifier("MemberRepositoryImplDataSource")
 	private MemberRepository memRepo;
 
 	@Override

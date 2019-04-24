@@ -1,10 +1,10 @@
 package edu.ssafy.board.dto;
 
 public class Member {
-	String id;
-	String pw;
-	String name;
-	String addr;
+	private String id;
+	private String pw;
+	private String name;
+	private String addr;
 
 	public Member() {
 	}
