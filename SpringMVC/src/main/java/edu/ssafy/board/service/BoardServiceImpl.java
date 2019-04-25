@@ -13,7 +13,7 @@ import edu.ssafy.board.repository.BoardRepository;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	@Qualifier("BoardRepositoryImpl")
+	@Qualifier("BoardRepositoryImplMyBatis")
 	private BoardRepository repo;
 
 	@Override
@@ -50,5 +50,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board get(int seq) {
 		return repo.get(seq);
+	}
+
+	@Override
+	public void check(int seq) {
+		repo.check(seq);
 	}
 }

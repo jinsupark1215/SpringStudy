@@ -165,13 +165,7 @@ public class BoardRepositoryImpl implements BoardRepository{
 	public Board get(int seq) {
 		try {
 			conn = ds.getConnection();
-			String query = "update board set cnt = cnt + 1 where seq = ?";
-			stmt = conn.prepareStatement(query);
-			stmt.setInt(1, seq);
-			stmt.execute();
-			stmt.close();
-			
-			query = "select seq, title, writer, content, regdate, cnt from board where seq = ?";
+			String query = "select seq, title, writer, content, regdate, cnt from board where seq = ?";
 			stmt = conn.prepareStatement(query);
 			stmt.setInt(1, seq);
 			rs = stmt.executeQuery();
@@ -194,6 +188,22 @@ public class BoardRepositoryImpl implements BoardRepository{
 			JDBCUtil.closeConnection(rs, stmt, conn);
 		}
 		return null;
+	}
+
+	@Override
+	public void check(int seq) {
+		try {
+			conn = ds.getConnection();
+			String query = "update board set cnt = cnt + 1 where seq = ?";
+			stmt = conn.prepareStatement(query);
+			stmt.setInt(1, seq);
+			stmt.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.closeConnection(stmt, conn);
+		}
 	}
 	
 }

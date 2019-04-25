@@ -43,13 +43,13 @@
 					<a href="#">공지 사항</a>
 				</div>
 				<div class="col-sm-2">
-					<a href="board/list">게시판</a>
+					<a href="/board/board/list">게시판</a>
 				</div>
 				<div class="col-sm-2">
 					<a href="uploadForm">파일 업로드</a>
 				</div>
 				<div class="col-sm-2">
-					<a href="member/list">회원 리스트</a>
+					<a href="/board/member/list">회원 리스트</a>
 				</div>
 				<div class="col-sm-2">
 					<a href="#">메뉴 3</a>

@@ -78,6 +78,7 @@ public class BoardController {
 	@RequestMapping("/detail")
 	public String detail(HttpServletRequest req) {
 		int seq = Integer.parseInt(req.getParameter("seq"));
+		boardSer.check(seq);
 		Board b = boardSer.get(seq);
 		req.setAttribute("seq", seq);
 		req.setAttribute("title", b.getTitle());

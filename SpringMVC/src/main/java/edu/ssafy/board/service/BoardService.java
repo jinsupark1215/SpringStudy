@@ -12,6 +12,8 @@ public interface BoardService {
 	public void delete(int seq);
 	
 	public Board get(int seq);
+	
+	public void check(int seq);
 
 	public List<Board> list();
 
