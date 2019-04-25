@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PrintAdvice {
 	
-	@Before("execution(* *..MemberService.insert(..))")
-	public void printBefore(JoinPoint jp) {
-//		System.out.println(jp.getSignature().getName());
-		System.out.println("PrintAdvice : AOP Before insert");
-	}
+//	@Before("execution(* *..MemberService.insert(..))")
+//	public void printBefore(JoinPoint jp) {
+////		System.out.println(jp.getSignature().getName());
+//		System.out.println("PrintAdvice : AOP Before insert");
+//	}
 	
 //	@After("execution(* app.Galaxy*.volumeUp(..))")
 //	public void printAfter(JoinPoint jp) {

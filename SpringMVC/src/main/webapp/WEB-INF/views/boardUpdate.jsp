@@ -34,7 +34,7 @@
 		});
 		
 		$("#cancelBtn").on('click', function(source) {
-			$("#form").attr("action", "../");
+			$("#form").attr("action", "list");
 			$("#form").submit();
 		});
 	});

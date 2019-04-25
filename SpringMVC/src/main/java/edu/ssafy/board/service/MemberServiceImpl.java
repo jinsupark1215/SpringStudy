@@ -16,10 +16,11 @@ public class MemberServiceImpl implements MemberService {
 	private static final Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 
 	@Autowired
-	@Qualifier("MemberRepositoryImplDataSource")
+	@Qualifier("MemberRepositoryImplMyBatis")
 	private MemberRepository memRepo;
 
 	@Override
+	/*@Transactional*/
 	public void insert(String id, String pw, String name, String addr) {
 		System.out.println(id + " " + pw + " " + name + " " + addr);
 		logger.info("MemberServiceImpl", "insert");

@@ -66,6 +66,10 @@ public class MemberController {
 //		String pw = req.getParameter("pw");
 //		String name = req.getParameter("name");
 //		String addr = req.getParameter("addr");
+		System.out.println("id = " + id);
+		System.out.println("pw = " + pw);
+		System.out.println("name = " + name);
+		System.out.println("addr = " + addr);
 		memSer.insert(id, pw, name, addr);
 
 		m.addObject("msg", "쉬는시간");
@@ -83,10 +87,16 @@ public class MemberController {
 //		String pw = req.getParameter("pwd");
 //		String name = req.getParameter("name");
 //		String addr = req.getParameter("addr");
+		
+		System.out.println("id = " + id);
+		System.out.println("pw = " + pw);
+		System.out.println("name = " + name);
+		System.out.println("addr = " + addr);
 
 		Member mem = memSer.get(id);
 
 		if (mem == null) {
+			System.out.println("해당 아이디 없음");
 			memSer.insert(id, pw, name, addr);
 			c = new Cookie("id", id);
 			res.addCookie(c);
