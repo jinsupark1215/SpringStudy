@@ -51,6 +51,30 @@ public class BoardController {
 		return "result";
 	}
 
+	@RequestMapping("/search")
+	public String search(HttpServletRequest req) {
+		String category = req.getParameter("class").trim();
+		String keyword = req.getParameter("searchArea").trim();
+		System.out.println("category = " + category + " keyword = " + keyword);
+		ArrayList<Board> list = new ArrayList<Board>();
+		
+		if(category.equals("작성자")) {
+			System.out.println("작성자로 검색");
+			list = (ArrayList<Board>) boardSer.getById(keyword);
+		} else if (category.equals("제목")) {
+			System.out.println("제목으로 검색");
+			list = (ArrayList<Board>) boardSer.getByKeyword(keyword);
+		}
+		
+		if (list.isEmpty()) {
+			req.setAttribute("msg", "검색 결과가 없습니다.");
+			return "error";
+		} else {
+			req.setAttribute("list", list);
+			return "boardList";
+		}
+	}
+
 	@RequestMapping("/detail")
 	public String detail(HttpServletRequest req) {
 		int seq = Integer.parseInt(req.getParameter("seq"));
@@ -85,7 +109,7 @@ public class BoardController {
 		req.setAttribute("msg", "게시글이 삭제되었습니다.");
 		return "result";
 	}
-	
+
 	@RequestMapping("/modResult")
 	public String modResult(HttpServletRequest req) {
 		req.setAttribute("msg", "게시글이 수정되었습니다.");
@@ -128,16 +152,16 @@ public class BoardController {
 			return "mkBoard";
 		}
 	}
-	
+
 	@RequestMapping("/update")
 	public String update(HttpServletRequest req) {
-		int seq = Integer.parseInt(req.getParameter("seq")); 
+		int seq = Integer.parseInt(req.getParameter("seq"));
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 
 		System.out.println("title = " + title);
 		System.out.println("content = " + content);
-		
+
 		boardSer.update(seq, title, content);
 		return "redirect:modResult";
 	}
