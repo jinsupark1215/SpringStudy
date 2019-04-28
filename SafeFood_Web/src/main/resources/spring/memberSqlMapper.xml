@@ -5,6 +5,31 @@
 
 
 <mapper namespace="mem">
+	<insert id="add" parameterType="member">
+		insert into member (id, pw, name, addr, phone, allergy) values (#{id}, #{pw}, #{name}, #{addr}, #{phone}, #{allergy})
+	</insert>
+	
+	<select id="login" parameterType="member" resultType="string">
+		select id from member where id = #{id} and pw = #{pw}
+	</select>
+
+	<update id="update" parameterType="member">
+		update member set pw = #{pw}, name = #{name}, addr = #{addr}, phone = #{phone}, allergy = #{allergy} where id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="member">
+		delete from member where id = #{id}
+	</delete>
+	
+	<select id="getInfo" parameterType="string" resultType="member">
+		select id, pw, name, addr, phone, allergy from member where id = #{id}
+	</select>
+
+	<select id="findPw" parameterType="member" resultType="member">
+		select id, pw, name, addr, phone, allergy from member where id = #{id} and name = #{name} and phone = #{phone}
+	</select>
+
+	<!-- 
 	<select id="selectList" resultType="member">
 		select * from member order by id;
 	</select>
@@ -23,4 +48,5 @@
 	<select id="login" parameterType="member" resultType="member">
 		select id, name, addr from member where id = #{id} and pw = #{pw}
 	</select>
+	 -->
 </mapper>

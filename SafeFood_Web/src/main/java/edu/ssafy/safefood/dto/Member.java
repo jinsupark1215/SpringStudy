@@ -1,7 +1,6 @@
 package edu.ssafy.safefood.dto;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -11,7 +10,7 @@ public class Member {
 	private String name;
 	private String addr;
 	private String phone;
-	private String[] allergy;
+	private String allergy;
 	private ArrayList<Eat> eat = new ArrayList<Eat>();
 	private Set<Integer> zzim = new TreeSet<Integer>();
 
@@ -19,7 +18,18 @@ public class Member {
 
 	}
 
-	public Member(String id, String pw, String name, String addr, String phone, String[] allergy) {
+	public Member(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
+	}
+
+	public Member(String id, String name, String phone) {
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+	}
+
+	public Member(String id, String pw, String name, String addr, String phone, String allergy) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -68,11 +78,11 @@ public class Member {
 		this.phone = phone;
 	}
 
-	public String[] getAllergy() {
+	public String getAllergy() {
 		return allergy;
 	}
 
-	public void setAllergy(String[] allergy) {
+	public void setAllergy(String allergy) {
 		this.allergy = allergy;
 	}
 
@@ -95,7 +105,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr + ", phone=" + phone
-				+ ", allergy=" + Arrays.toString(allergy) + "]";
+				+ ", allergy=" + allergy + "]";
 	}
 
 }
