@@ -1,20 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8" import="java.util.ArrayList,edu.ssafy.safefood.dto.Food"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	String allergy = (String) request.getAttribute("allergy");
-	if(allergy.length() == 0){
-		allergy = "알레르기 정보 없음";
-	}
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>식품 상세</title>
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/css/user.css" rel="stylesheet">
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	drawChart();
@@ -24,11 +19,6 @@ function add(){
 	var quantity = $("#quan").val();
 	
 	$("#form").attr("action", "/eat/addFood");
-	$("#form").submit();
-}
-
-function zzim(){
-	$("#form").attr("action", "/eat/zzim");
 	$("#form").submit();
 }
 
@@ -81,6 +71,10 @@ function drawChart() {
 </script>
 
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+
 .btn-circle.btn-xl {
 	width: 70px;
 	height: 70px;
@@ -118,12 +112,12 @@ hr {
 	color: #999999;
 }
 
-#menu{
+#menu {
 	margin-top: 20px;
 	text-align: center;
 }
 
-#menu a{
+#menu a {
 	text-decoration: none;
 	color: black;
 }
@@ -131,19 +125,18 @@ hr {
 </head>
 
 <body>
-	<jsp:include page="header.jsp"></jsp:include>	
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container" style="text-align: center; margin-top: 20px;">
 		<h1 style="font-weight: bold">제품 정보</h1>
 	</div>
 	<div class="col-md-offset-4 col-md-4" style="text-align: center;">
-		<button type="button" class="btn btn-default btn-circle btn-xl"
-			disabled>
+		<button type="button" class="btn btn-default btn-circle btn-xl" disabled>
 			<i class="glyphicon glyphicon-shopping-cart"></i>
 		</button>
 	</div>
 	<div class="container">
 		<div class="col-md-3">
-			<img id="foodImg" src=${food.img } width="200px" height="200px">
+			<img id="foodImg" src="/resources/${food.img }" width="200px" height="200px">
 		</div>
 		<div class="col-md-offset-1 col-md-8" id="info">
 			<hr>
@@ -168,22 +161,30 @@ hr {
 			</div>
 			<hr>
 			<div class="col-md-3" style="padding: 0">
-				<form action = "#" method = "get" id="form">
-					<input type="hidden" name = "code" value="${food.code}">
+				<form action="#" method="get" id="form">
+					<input type="hidden" name="code" value="${food.code}">
 					<div class="form-group">
-						<label for="quan">Quantity</label> <input type="number" class="form-control" name ="quan" id="quan" value="1" min="1">
+						<label for="quan">Quantity</label> <input type="number" class="form-control" name="quan" id="quan" value="1" min="1">
 					</div>
 				</form>
 
 				<div class="btn-group">
 					<button type="button" class="btn btn-info" onclick="add()">
-						<span class="glyphicon glyphicon-user" style="margin-right: 15px"></span>추가
+						<span class="glyphicon glyphicon-cutlery" style="margin-right: 15px"></span>추가
 					</button>
-					<button type="button" class="btn btn-info" onclick="zzim()">
-						<span class="glyphicon glyphicon-ok" style="margin-right: 15px"></span>찜
-					</button>
+					<c:choose>
+						<c:when test="${zzimlist.contains(food.code)}">
+							<button type="button" class="btn btn-danger" onclick="location.href='../zzim/del?code=${food.code}'">
+								<span class="glyphicon glyphicon-minus"></span> 찜 해제
+							</button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" class="btn btn-info" onclick="location.href='../zzim/add?code=${food.code}'">
+								<span class="glyphicon glyphicon-plus"></span> 찜
+							</button>
+						</c:otherwise>
+					</c:choose>
 				</div>
-
 			</div>
 		</div>
 	</div>

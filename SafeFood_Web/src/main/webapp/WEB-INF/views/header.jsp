@@ -15,7 +15,11 @@
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
 #menu {
 	text-align: center;
 	font-size: 25px;
@@ -85,7 +89,7 @@
 					<a href="#">공지 사항</a>
 				</div>
 				<div class="col-sm-2">
-					<a href="foodInfo.do">상품 정보</a>
+					<a href="/food/goFoodInfo">상품 정보</a>
 				</div>
 				<div class="col-sm-2">
 					<a href="#">베스트 섭취 정보</a>
@@ -94,7 +98,7 @@
 					<a href="/eat/myEat">내 섭취 정보</a>
 				</div>
 				<div class="col-sm-2">
-					<a href="zzim.myZZim.do">찜 상품</a>
+					<a href="/zzim/myZZim">찜 상품</a>
 				</div>
 				<div class="col-sm-1">
 					<span class="glyphicon glyphicon-search"></span>

@@ -6,6 +6,6 @@
 	<typeAliases>
 		<typeAlias alias="member" type="edu.ssafy.safefood.dto.Member"/>
 		<typeAlias alias="food" type="edu.ssafy.safefood.dto.Food"/>
-		<typeAlias alias="Eat" type="edu.ssafy.safefood.dto.Eat"/>
+		<typeAlias alias="eat" type="edu.ssafy.safefood.dto.Eat"/>
 	</typeAliases>
 </configuration>

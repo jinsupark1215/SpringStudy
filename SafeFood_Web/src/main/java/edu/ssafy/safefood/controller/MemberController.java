@@ -9,74 +9,74 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import edu.ssafy.safefood.dto.Member;
 import edu.ssafy.safefood.service.MemberServiceImpl;
+import edu.ssafy.safefood.service.ZZimServiceImpl;
 
 @Controller
 @RequestMapping(value = "/member", method = { RequestMethod.GET, RequestMethod.POST })
 public class MemberController {
 	@Autowired
-	private ZZimController zc;
-	@Autowired
 	private MemberServiceImpl memService;
-	private HttpSession session;
+	@Autowired
+	private ZZimServiceImpl zzimService;
 	private Cookie c;
+	
+	@ExceptionHandler(Exception.class)
+	public String exception(Exception e, HttpServletRequest req) {
+		req.setAttribute("msg", "에러 발생\n사용에 불편을 드려죄송합니다.");
+		return "error";
+	}
 
 	@RequestMapping(value = "/resetPw", method = { RequestMethod.GET, RequestMethod.POST })
-	private String resetPW(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pwd");
-		System.out.println("id = " + id);
-		System.out.println("pwd = " + pw);
-
+	private ModelAndView resetPW(ModelAndView mav, @RequestParam("id")String id, @RequestParam("pwd")String pw) {
 		Member m = memService.getInfo(id);
 
 		if (m != null) {
 			m.setPw(pw);
 			memService.update(m);
-			request.setAttribute("msg", "비밀번호가 재설정 되었습니다.");
-			return "result";
+			mav.addObject("msg", "비밀번호가 재설정 되었습니다.");
+			mav.setViewName("result");
 		} else {
-			request.setAttribute("msg", "회원 정보 없음");
-			return "error";
+			mav.addObject("msg", "회원 정보가 없습니다.");
+			mav.setViewName("error");
 		}
+		return mav;
 	}
 
 	@RequestMapping(value = "/findPW", method = { RequestMethod.GET, RequestMethod.POST })
-	private String findPW(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-
+	private ModelAndView findPW(@RequestParam("id")String id, @RequestParam("name")String name, @RequestParam("phone")String phone, ModelAndView mav) {
 		Member m = memService.findPw(id, name, phone);
 
 		if (m != null) {
-			System.out.println("정보있음");
-			request.setAttribute("id", id);
-			return "resetPW";
+			mav.addObject("id", id);
+			mav.setViewName("resetPW");
 		} else {
-			System.out.println("정보없음");
-			request.setAttribute("msg", "회원 정보 없음");
-			return "error";
+			mav.addObject("msg", "회원 정보가 없습니다.");
+			mav.setViewName("error");
 		}
+		return mav;
 	}
 
 	@RequestMapping(value = "/update", method = { RequestMethod.GET, RequestMethod.POST })
-	private String goUpdatePage(HttpServletRequest request, HttpServletResponse response) {
-		session = request.getSession();
+	private ModelAndView goUpdatePage(ModelAndView mav, HttpServletRequest req, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		Member m = memService.getInfo(id);
 
 		if (m != null) {
-			request.setAttribute("allergy", m.getAllergy());
-			return "update";
+			req.setAttribute("allergy", m.getAllergy());
+			mav.setViewName("update");
 		} else {
-			request.setAttribute("msg", "회원 정보 없음");
-			return "error";
+			mav.addObject("msg", "회원 정보가 없습니다.");
+			mav.setViewName("error");
 		}
+		return mav;
 	}
 
 	@RequestMapping(value = "/result", method = { RequestMethod.GET, RequestMethod.POST })
@@ -102,22 +102,22 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/mypage", method = { RequestMethod.GET, RequestMethod.POST })
-	private String mypage(HttpServletRequest request, HttpServletResponse response) {
-		session = request.getSession();
+	private ModelAndView mypage(ModelAndView mav, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		Member m = memService.getInfo(id);
 
 		if (m != null) {
-			request.setAttribute("id", m.getId());
-			request.setAttribute("name", m.getName());
-			request.setAttribute("addr", m.getAddr());
-			request.setAttribute("phone", m.getPhone());
-			request.setAttribute("allergy", m.getAllergy());
-			return "myPage";
+			mav.addObject("id", m.getId());
+			mav.addObject("name", m.getName());
+			mav.addObject("addr", m.getAddr());
+			mav.addObject("phone", m.getPhone());
+			mav.addObject("allergy", m.getAllergy());
+			mav.setViewName("myPage");
 		} else {
-			request.setAttribute("msg", "로그인 정보 없음");
-			return "error";
+			mav.addObject("msg", "로그인 정보가 없습니다.");
+			mav.setViewName("error");
 		}
+		return mav;
 	}
 
 	@RequestMapping(value = "/regist", method = { RequestMethod.GET, RequestMethod.POST })
@@ -156,7 +156,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
-	private String delete(HttpServletRequest request, HttpServletResponse response) {
+	private String delete(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pwd");
 
@@ -175,15 +175,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/logout", method = { RequestMethod.GET, RequestMethod.POST })
-	private String logout(HttpServletRequest request, HttpServletResponse response) {
-		session = request.getSession();
+	private String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		session.invalidate();
 		return "redirect:../";
 	}
 
 	@RequestMapping(value = "/updateInfo", method = { RequestMethod.GET, RequestMethod.POST })
-	private String update(HttpServletRequest request, HttpServletResponse response) {
-		session = request.getSession();
+	private String update(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		Member m = memService.getInfo(id);
 
@@ -217,27 +215,29 @@ public class MemberController {
 		}
 		m.setAllergy(allergy);
 		memService.update(m);
+		session.setAttribute("allergy", m.getAllergy());
 		return "redirect:mypage";
 	}
 
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
-	private String login(HttpServletRequest request, HttpServletResponse response) {
+	private String login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pwd");
-		session = request.getSession();
 
 		if (memService.logIn(id, pw) != null) {
 			session.setAttribute("id", id);
 
 			Member m = memService.getInfo(id);
 
-			Set<Integer> set = zc.getZZimList(id);
-
+			Set<Integer> set = zzimService.getZZimList(id);
+			
+			if(set == null) {
+				System.out.println("찜리스트 비었음");
+			} else {
+				session.setAttribute("zzimlist", set);
+				System.out.println(set.toString());
+			}
 			session.setAttribute("allergy", m.getAllergy());
-			session.setAttribute("zzimlist", set);
-
-			System.out.println("zzimlist 확인 : " + set.contains(1));
-			System.out.println(set.toString());
 			return "redirect:../";
 		} else {
 			request.setAttribute("msg", "아이디 또는 패스워드가 다릅니다");

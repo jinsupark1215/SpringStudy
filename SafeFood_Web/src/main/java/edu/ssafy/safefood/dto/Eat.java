@@ -1,12 +1,21 @@
 package edu.ssafy.safefood.dto;
 
-public class Eat {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Eat implements Comparable<Eat> {
 	private int code;
 	private int count;
 	private String date;
 
 	public Eat() {
 
+	}
+	
+	public Eat(int code, String date) {
+		this.code = code;
+		this.date = date;
 	}
 
 	public Eat(int code, int count, String date) {
@@ -42,6 +51,26 @@ public class Eat {
 	@Override
 	public String toString() {
 		return "Eat [code=" + code + ", count=" + count + ", date=" + date + "]";
+	}
+
+	@Override
+	public int compareTo(Eat o) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date one;
+		try {
+			one = df.parse(this.date);
+			Date two = df.parse(o.date);
+			if (one.getTime() < two.getTime()) {
+				return -1;
+			} else if (one.getTime() == two.getTime()) {
+				return this.code - o.code;
+			} else {
+				return 1;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 
 }

@@ -41,6 +41,10 @@
 	});
 </script>
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+
 #box{
 	background-color: gray;
 	padding-bottom: 3%;

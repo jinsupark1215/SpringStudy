@@ -47,6 +47,10 @@
 	});
 </script>
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+
 #box {
 	background-color: gray;
 	padding-bottom: 3%;
@@ -103,7 +107,7 @@ legend.allergyField {
 			<form class="form-horizontal" id="form" action="#" method="post">
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-2" for="id">아이디</label>
-					<div class="data col-md-5" id="id">${sessionScope.id}</div>
+					<div class="data col-md-5" id="id">${id}</div>
 				</div>
 
 				<div class="form-group has-primary has-feedback">

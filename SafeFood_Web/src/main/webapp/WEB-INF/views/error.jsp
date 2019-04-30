@@ -2,18 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-	String msg = (String) request.getAttribute("msg");
-	if(msg == null){
-		msg = "Error 발생";
-	}
-%>
 <meta charset="UTF-8">
 <title>에러</title>
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
 #box{
 	background-color: gray;
 	padding-bottom: 3%;
@@ -54,7 +51,7 @@ h1{
 	<div class="row" id="box">
 		<div class="container" id="outer">
 			<div class="row" id="title">ERROR</div>
-			<h1><%=msg %></h1>
+			<h1>${msg}</h1>
 			<div class="row" id="btnGroup">
 				<div class="col-md-4">
 					<button type="button" class="btn btn-info" onclick="location.href = '../'">확인</button>

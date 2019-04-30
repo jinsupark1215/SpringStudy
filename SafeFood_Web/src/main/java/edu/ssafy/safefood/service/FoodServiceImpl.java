@@ -15,25 +15,28 @@ public class FoodServiceImpl implements FoodService {
 
 	@Override
 	public ArrayList<Food> getList() {
-		// TODO Auto-generated method stub
 		try {
 			return dao.getList();
 		} catch (Exception e) {
 			System.out.println("getList 에러");
+			return null;
 		}
-		return null;
 	}
 
 	@Override
 	public ArrayList<Food> search(int type, String searchWord) {
 		// TODO Auto-generated method stub
-		System.out.println("foodServiceImp , keyword : " + searchWord);
 		try {
 			return dao.getSearchList(type, searchWord);
 		} catch (Exception e) {
 			System.out.println("searchList 에러");
+			return null;
 		}
-		return null;
+	}
+
+	@Override
+	public Food getFood(int code) {
+		return dao.getFood(code);
 	}
 
 }

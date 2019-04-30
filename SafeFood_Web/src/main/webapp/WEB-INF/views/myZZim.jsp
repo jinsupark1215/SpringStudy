@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*,edu.ssafy.safefood.dto.Food"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,edu.ssafy.safefood.dto.Food"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -61,6 +60,11 @@ function drawChart() {
 	});
 }
 </script>
+<style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -77,10 +81,10 @@ function drawChart() {
 					<div class="col-md-3">
 						<div class="thumnail">
 							<div class="hovereffect">
-								<img class="img-responsive" src="/${content.img}" alt=""
+								<img class="img-responsive" src="/resources/${content.img}" alt=""
 									style="width:100%">
 								<div class="overlay">
-									<h2>
+									<h2 style="margin: 0; margin-top: 10px;">
 										${content.name}<br>${content.maker}
 									</h2>
 								</div>
@@ -94,7 +98,7 @@ function drawChart() {
 		
 		<br>
 		<div class="container" style="margin-top: 5%">
-			<h2 style="text-align: center">영양 정보</h2>
+			<h2 style="text-align: center">찜 식품 영양 정보</h2>
 			<br><br>
 			<div class="col-md-6">
 				<canvas id="chart" height="240"></canvas>

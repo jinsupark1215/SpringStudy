@@ -31,6 +31,9 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/spring/memberSqlMapper.xml</value>
+				<value>classpath:/spring/eatSqlMapper.xml</value>
+				<value>classpath:/spring/foodSqlMapper.xml</value>
+				<value>classpath:/spring/zzimSqlMapper.xml</value>
 			</list>
 		</property>
 	</bean>

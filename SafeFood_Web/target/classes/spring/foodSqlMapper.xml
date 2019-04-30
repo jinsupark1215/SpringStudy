@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="foodMapper">
+	<select id="selectList" resultType="food">
+		select * from food
+	</select>
+	
+	<select id="searchByName" parameterType="string" resultType="food">
+		select * from food where name like #{searchWord}
+	</select>
+
+	<select id="searchByMaker" parameterType="string" resultType="food">
+		select * from food where maker like #{searchWord}
+	</select>
+
+	<select id="searchByMaterial" parameterType="string" resultType="food">
+		select * from food where material like #{searchWord}
+	</select>
+	
+	<select id="getFood" parameterType="int" resultType="food">
+		select * from food where code = #{code}
+	</select>
+	
+</mapper>

@@ -1,12 +1,11 @@
 package edu.ssafy.safefood.repository;
 
-import java.util.List;
-import java.util.Set;
+import java.util.ArrayList;
 
 public interface ZZimDAO {
-	public void addZZim(String id, int code);
+	public void addZZim(String id, int code) throws Exception;
 
-	public void delZZim(String id, int code);
+	public void delZZim(String id, int code) throws Exception;
 
-	public List<Integer> getList(String id);
+	public ArrayList<Integer> getList(String id) throws Exception;
 }

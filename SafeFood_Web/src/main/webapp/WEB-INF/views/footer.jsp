@@ -6,7 +6,12 @@
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+
 #footer {
 	background-color: #fafafa;
 	padding-left: 10%;

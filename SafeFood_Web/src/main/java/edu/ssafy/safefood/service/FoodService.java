@@ -9,4 +9,7 @@ public interface FoodService {
 	public ArrayList<Food> getList();
 
 	public ArrayList<Food> search(int type, String searchWord);
+	
+	public Food getFood(int code);
+	
 }

@@ -16,11 +16,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean add(Member m) {
 		try {
-			if (dao.add(m)) {
-				return true;
-			} else {
-				return false;
-			}
+			dao.add(m);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -31,18 +28,15 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			return dao.logIn(id, pw);
 		} catch (Exception e) {
+			return null;
 		}
-		return null;
 	}
 
 	@Override
 	public boolean update(Member m) {
 		try {
-			if (dao.update(m)) {
-				return true;
-			} else {
-				return false;
-			}
+			dao.update(m);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -51,11 +45,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean delete(String id, String pw) {
 		try {
-			if (dao.delete(id, pw)) {
-				return true;
-			} else {
-				return false;
-			}
+			dao.delete(id, pw);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}

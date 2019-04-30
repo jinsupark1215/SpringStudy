@@ -78,6 +78,10 @@
 	});
 </script>
 <style type="text/css">
+*{
+	font-family: 'Gamja Flower', cursive;
+}
+
 #box {
 	background-color: gray;
 	padding-bottom: 3%;

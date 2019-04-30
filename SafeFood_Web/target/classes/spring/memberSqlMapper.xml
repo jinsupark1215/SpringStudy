@@ -17,7 +17,7 @@
 		update member set pw = #{pw}, name = #{name}, addr = #{addr}, phone = #{phone}, allergy = #{allergy} where id = #{id}
 	</update>
 
-	<delete id="delete" parameterType="member">
+	<delete id="delete" parameterType="string">
 		delete from member where id = #{id}
 	</delete>
 	
@@ -29,24 +29,4 @@
 		select id, pw, name, addr, phone, allergy from member where id = #{id} and name = #{name} and phone = #{phone}
 	</select>
 
-	<!-- 
-	<select id="selectList" resultType="member">
-		select * from member order by id;
-	</select>
-	<select id="selectOne" parameterType="string" resultType="member">
-		select * from member where id = #{id};
-	</select>
-	<insert id="insert" parameterType="member">
-		insert into member (id, pw, name, addr) values(#{id},#{pw},#{name},#{addr})
-	</insert>
-	<delete id="delete" parameterType="string">
-		delete from member where id = #{id}
-	</delete>
-	<update id="update" parameterType="member">
-		update member set pw = #{pw}, name = #{name}, addr = #{addr} where id = #{id}
-	</update>
-	<select id="login" parameterType="member" resultType="member">
-		select id, name, addr from member where id = #{id} and pw = #{pw}
-	</select>
-	 -->
 </mapper>

@@ -1,5 +1,7 @@
 package edu.ssafy.safefood.service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,22 +15,44 @@ public class ZZimServiceImpl implements ZZimService {
 	private ZZimDAO zzimDAO;
 
 	@Override
-	public void addZZim(String id, int code) {
-		// TODO Auto-generated method stub
-		zzimDAO.addZZim(id, code);
+	public boolean addZZim(String id, int code) {
+		try {
+			zzimDAO.addZZim(id, code);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public void delZZim(String id, int code) {
-		// TODO Auto-generated method stub
-		zzimDAO.delZZim(id, code);
+	public boolean delZZim(String id, int code) {
+		try {
+			zzimDAO.delZZim(id, code);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public Set<Integer> getZZimList(String id) {
-		// TODO Auto-generated method stub
-//		return zzimDAO.getList(id);
-		return null;
+		try {
+			ArrayList<Integer> list = zzimDAO.getList(id);
+			if(list == null) {
+				return null;
+			} else {
+				Set<Integer> zzimList = new HashSet<Integer>();
+				for(Integer i : list) {
+					zzimList.add(i);
+				}
+				return zzimList;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

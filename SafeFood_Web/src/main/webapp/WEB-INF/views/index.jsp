@@ -7,15 +7,21 @@
 <!-- Bootstrap core CSS -->
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/user.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 function search(){
 	var searchCondition = document.getElementById("searchCondition").value;
 	var searchWord = document.getElementById("searchWord").value;
-  	location.href="foodInfo.do?searchCondition="+searchCondition+"&searchWord="+searchWord;
+  	location.href="/food/search?searchCondition="+searchCondition+"&searchWord="+searchWord;
 }
 </script>
+<style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+</style>
 </head>
 
 <body>

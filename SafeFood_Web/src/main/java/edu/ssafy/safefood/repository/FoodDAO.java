@@ -8,4 +8,6 @@ public interface FoodDAO {
 	public ArrayList<Food> getList();
 
 	public ArrayList<Food> getSearchList(int type, String searchWord);
+	
+	public Food getFood(int code);
 }

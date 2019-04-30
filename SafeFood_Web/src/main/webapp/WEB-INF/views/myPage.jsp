@@ -9,6 +9,10 @@
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+
 #box {
 	background-color: gray;
 	padding-bottom: 3%;
@@ -58,22 +62,22 @@ legend.allergyField {
 			<form class="form-horizontal" action="#" method="post">
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="id">아이디</label>
-					<div class="data col-md-5" id="id">${requestScope.id}</div>
+					<div class="data col-md-5" id="id">${id}</div>
 				</div>
 
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="name">이름</label>
-					<div class="data col-md-5" id="name">${requestScope.name}</div>
+					<div class="data col-md-5" id="name">${name}</div>
 				</div>
 
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="addr">주소</label>
-					<div class="data col-md-5" id="addr">${requestScope.addr}</div>
+					<div class="data col-md-5" id="addr">${addr}</div>
 				</div>
 
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="phone">전화번호</label>
-					<div class="data col-md-5" id="phone">${requestScope.phone}</div>
+					<div class="data col-md-5" id="phone">${phone}</div>
 				</div>
 
 				<div class="form-group has-primary has-feedback">
@@ -81,7 +85,7 @@ legend.allergyField {
 					<div class="data col-md-8" id="allergy">
 						<fieldset class="allergyField" style="margin-left: 5px;">
 							<legend class="allergyField">Check</legend>
-							${requestScope.allergy}
+							${allergy}
 						</fieldset>
 					</div>
 				</div>
