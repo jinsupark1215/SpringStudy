@@ -3,12 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-	String msg = (String) request.getAttribute("msg");
-	if(msg == null){
-		msg = "Error 발생";
-	}
-%>
 <meta charset="UTF-8">
 <title>에러</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -53,7 +47,7 @@ h1{
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="container" id="outer">
 			<div class="row" id="title">ERROR</div>
@@ -65,6 +59,6 @@ h1{
 			</div>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

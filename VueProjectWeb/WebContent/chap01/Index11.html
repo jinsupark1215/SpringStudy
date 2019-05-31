@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="input">
+		<input type="checkbox" value="여행" v-model="vacation"> 여행
+		<br>
+		<input type="checkbox" value="연애" v-model="vacation"> 연애
+		<br>
+		<input type="checkbox" value="효도" v-model="vacation"> 효도
+		<h2 v-text="vacation"></h2>
+	</div>
+	
+	<div id="second">
+		<input type="radio" value="여행" v-model="result"> 여행
+		<br>
+		<input type="radio" value="연애" v-model="result"> 연애
+		<br>
+		<input type="radio" value="효도" v-model="result"> 효도
+		<h2 v-text="result"></h2>
+	</div>
+	
+	<div id="third">
+		<select v-model="select">
+			<option>여행</option>
+			<option>공부</option>
+			<option>효도</option>
+		</select>
+		<input type='text' v-model="select"/>
+		<input type='text' v-bind:value="select"/>
+	</div>
+	
+	<script type="text/javascript">
+		var model = {vacation : []};
+		
+		var app = new Vue({
+			el : "#input",
+			data : model
+		});
+
+		var app = new Vue({
+			el : "#second",
+			data : {result : []}
+		});
+		
+		var app = new Vue({
+			el : "#third",
+			data : {select:''}
+		});
+		
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

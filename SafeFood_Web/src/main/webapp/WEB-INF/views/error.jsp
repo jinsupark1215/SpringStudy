@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,33 +12,23 @@
 *{
 	font-family: 'Stylish', sans-serif;
 }
-#box{
-	background-color: gray;
-	padding-bottom: 3%;
-}
+
 #outer {
-	background-color: #F5F5F5;
-	border-radius: 20px;
-	margin-top: 3%;
-	padding: 40px;
+	margin-top: 12%;
+	padding-top: 5px;
+	border : 2px solid;
 }
 
 #title {
 	text-align: center;
 	font-size: 3em;
 	font-weight: bold;
-	background-color: #F5F5F5;
 	margin-bottom: 10px;
 }
 
 #btnGroup {
-	padding-left: 40%;
 	margin-bottom: 2%;
 	margin-top: 30px;
-}
-
-button {
-	width: 100%;
 }
 
 h1{
@@ -48,13 +39,17 @@ h1{
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="row" id="box">
+	<div style="min-height: 400px">
 		<div class="container" id="outer">
-			<div class="row" id="title">ERROR</div>
+			<div id="title">ERROR</div>
 			<h1>${msg}</h1>
 			<div class="row" id="btnGroup">
-				<div class="col-md-4">
-					<button type="button" class="btn btn-info" onclick="location.href = '../'">확인</button>
+				<div style="text-align: center">
+					<c:if test="${msg eq '로그인 정보가 없습니다.'}">
+						<button type="button" class="btn btn-info" onclick="location.href = '/member/signup'">회원가입하기</button>
+						<button type="button" class="btn btn-info" onclick="location.href = '/member/goLogin'">로그인하기</button>
+					</c:if>
+					<button type="button" class="btn btn-info" onclick="location.href = '../'">홈으로 가기</button>
 				</div>
 			</div>
 		</div>

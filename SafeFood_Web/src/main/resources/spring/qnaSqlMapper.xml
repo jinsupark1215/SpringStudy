@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qnaMap">
+	<select id="selectList" resultType="qna">
+		select seq, title, writer, question, answer, qDate, aDate, viewCnt from qna order by viewCnt desc
+	</select>
+	
+	<insert id="insert" parameterType="qna">
+		insert into qna (title, writer, question, qDate) values (#{title}, #{writer}, #{question}, curdate())
+	</insert>
+	
+	<update id="update" parameterType="qna">
+		update qna set title = #{title}, question = #{question} where seq = #{seq};
+	</update>
+	
+	<update id="watch" parameterType="int">
+		update qna set viewCnt = viewCnt + 1 where seq = #{seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from qna where seq = #{seq}
+	</delete>
+	
+	<update id="answer" parameterType="qna">
+		update qna set answer = #{answer}, aDate = curdate() where seq = #{seq}
+	</update>
+	
+	<select id="getCnt" parameterType="int" resultType="int">
+		select viewCnt from qna where seq=#{seq}
+	</select>
+	
+	<update id="delAns" parameterType="int">
+		update qna set answer = null, aDate = null where seq = #{seq}
+	</update>
+	
+</mapper>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.ssafy.safefood.dto.Food;
+import edu.ssafy.safefood.dto.FreSearch;
 import edu.ssafy.safefood.dto.Member;
 import edu.ssafy.safefood.service.FoodServiceImpl;
 import edu.ssafy.safefood.service.MemberServiceImpl;
@@ -36,6 +37,7 @@ public class FoodController {
 	public String search(HttpServletRequest req) {
 		String searchCondition = req.getParameter("searchCondition");
 		String searchWord = req.getParameter("searchWord");
+		
 		if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
 			req.setAttribute("list", foodService.getList());
 		} else {
@@ -48,7 +50,9 @@ public class FoodController {
 				type = 3;
 			}
 			ArrayList<Food> tmp = foodService.search(type, searchWord);
+			ArrayList<FreSearch> tmp2 = foodService.getFreSearchList();
 			req.setAttribute("list", tmp);
+			req.setAttribute("freList", tmp2);
 		}
 		return "foodInfo";
 	}
@@ -56,7 +60,10 @@ public class FoodController {
 	@RequestMapping(value = "/goFoodInfo", method = { RequestMethod.GET, RequestMethod.POST })
 	private String goFoodInfo(HttpServletRequest req) {
 		ArrayList<Food> tmp = foodService.getList();
+		ArrayList<FreSearch> tmp2 = foodService.getFreSearchList();
+		req.setAttribute("freList", tmp2);
 		req.setAttribute("list", tmp);
+		
 		return "foodInfo";
 	}
 
@@ -88,4 +95,7 @@ public class FoodController {
 		mav.setViewName("detail");
 		return mav;
 	}
+	
+	
+	
 }

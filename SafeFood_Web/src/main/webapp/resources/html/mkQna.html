@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QnA 작성</title>
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+<script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script type="text/javascript">
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+	}
+	
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+	}
+</script>
+<style type="text/css">
+*{
+	font-family: 'Stylish', sans-serif;
+}
+
+#outer {
+	margin-top: 10%;
+	padding: 40px;
+	padding-top: 5px;
+	border: 2px solid;
+}
+
+#signText {
+	font-size: 3em;
+	font-weight: bold;
+	padding-left: 1%;
+}
+
+.bottom {
+	width: 200px;
+}
+
+#footer {
+	background-color: #fafafa;
+	margin-top: 3%;
+	margin-bottom: 0;
+}
+
+#footer li {
+	height: 30px;
+}
+
+#copyright {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+.myGlyp{
+	margin-right: 1%;
+}
+</style>
+</head>
+<body>
+	<div id="header" v-html='header'></div>
+	<div style="min-height: 430px">
+		<div class="container" id="outer">
+			<h3 id="signText">QnA 작성</h3>
+			<form class="form-horizontal" id="form" action="" method="post" @submit.prevent="inputCheck">
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label col-md-1" for="title">제목<span style="color: red"> *</span></label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="title" id="title" v-model="title">
+					</div>
+				</div>
+
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label col-md-1" for="question">내용<span style="color: red"> *</span></label>
+					<div class="col-md-10">
+						<textarea class="form-control" rows="5" id = "question" name = "question" v-model="question" ></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row" style="text-align: center;">
+						<button type="submit" class="btn btn-info" id="submitBtn" style="width: 200px">
+							등록<span class="glyphicon glyphicon-ok" style="margin-left: 15px"></span>
+						</button>
+						<button type="button" onclick="location.href='/resources/html/qnaList.html'" class="btn btn-danger" style="width: 200px">
+							취소<span class="glyphicon glyphicon-remove" style="margin-left: 15px"></span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<nav class="navbar navbar-bottom" id="footer">
+		<div class="container">
+			<h3>Find Us</h3>
+			<hr style="margin-bottom: 10px">
+			<ul class="list-unstyled">
+				<li><i class="myGlyp glyphicon glyphicon-map-marker" style="color: #00D8FF;"></i>(SSAFY)서울시 강남구 테헤란로 멀티스퀘어</li>
+				<li><i class="myGlyp glyphicon glyphicon-earphone" style="color: #00D8FF;"></i>1544-9011</li>
+				<li><i class="myGlyp glyphicon glyphicon-envelope" style="color: #00D8FF;"></i>admin@ssafy.com</li>
+			</ul>
+		</div>
+		<div class="container" id="copyright">Copyright by SSAFY. All rights reserved.</div>
+	</nav>
+	<script type="text/javascript">
+		new Vue({
+			el : "#header",
+			data : {
+				header : ''
+			},
+			mounted(){
+				axios
+				.get('/qna/header')
+				.then(response => (this.header = response.data))
+				.catch(error =>{
+					console.log(error)
+				})
+			}
+		});
+		
+		new Vue({
+			el : "#outer",
+			data : {
+				title : '',
+				question : ''
+			},
+			methods : {
+				inputCheck : function(){
+					if(this.title==''){alert('제목은 공백일 수 없습니다.'); return;}
+					if(this.question==''){alert('내용은 공백일 수 없습니다.'); return;}
+					axios
+					.post('/qna/insert',{title : this.title, question : this.question})
+					.then(response => {
+						if(response.data == 'success'){
+							alert("정상적으로 등록되었습니다.");
+							location.href='/resources/html/qnaList.html';
+						} else {
+							alert("등록이 되지 않았습니다.");
+							location.href='/resources/html/qnaList.html';
+						}
+					})
+					.catch(error => {
+						console.log(error)
+					})
+				}
+			}
+		});
+	</script>
+</body>
+</html>

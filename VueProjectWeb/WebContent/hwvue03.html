@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Homework3</title>
+<script src="https://unpkg.com/vue"></script>
+<style type="text/css">
+#title{
+	text-align: center;
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h1 id = "title">SSAFY</h1>
+
+	<hr>
+	
+	<div id="check">
+		<input type="checkbox" value="Jack" v-model="name"> Jack
+		<input type="checkbox" value="John" v-model="name"> John
+		<input type="checkbox" value="Mike" v-model="name"> Mike
+		<br>
+		체크한 이름 : {{name}}
+	</div>
+
+	<hr>
+
+	<div id="radio">
+		<input type="radio" value="One" v-model="num"> One
+		<input type="radio" value="Two" v-model="num"> two
+		<br>
+		선택 : {{num}}
+	</div>
+
+	<hr>
+
+	<div id="select">
+		<select v-model="alphabet" multiple>
+			<option>A</option>
+			<option>B</option>
+			<option>C</option>
+		</select>
+		<br>
+		Selected : {{alphabet}}
+	</div>
+	
+	
+	<script type="text/javascript">
+		new Vue({
+			el : "#check",
+			data : {
+				name : []
+			}
+		});
+		
+		new Vue({
+			el : "#radio",
+			data : {
+				num : ''
+			}
+		});
+		
+		new Vue({
+			el : "#select",
+			data : {
+				alphabet : []
+			}
+		});
+	</script>
+</body>
+</html>

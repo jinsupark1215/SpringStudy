@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<h1>{{title}}</h1>
+		<div v-text="title"></div>
+		<div v-html="titlehtml"></div>
+		<div>{{showMes()}}</div>
+		<div><h2>{{showMyName('현빈')}}</h2></div>
+		<div v-on:click='showChangeName'><h2>{{title}}</h2></div>
+		<div @click='showChangeName'><h2>{{title}}</h2></div>
+	</div>
+	
+	<script type="text/javascript">
+		var model = {
+			title : "SSAFY 만세",
+			titlehtml : "<h1>SSAFY 2기 모집중</h1>"
+		};
+
+		var app = new Vue({
+			data : model,
+			el : '#first',
+			methods : {
+				showMes:function(){
+					return "지금 시간은 " + new Date();
+				},
+				showMyName:function(name){
+					return name + '신림가요';
+				},
+				showChangeName:function(){
+					this.title = "술마시러 가자";
+				}
+			}
+		});
+		
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

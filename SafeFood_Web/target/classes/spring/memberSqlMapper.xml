@@ -3,10 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <mapper namespace="mem">
 	<insert id="add" parameterType="member">
-		insert into member (id, pw, name, addr, phone, allergy) values (#{id}, #{pw}, #{name}, #{addr}, #{phone}, #{allergy})
+		insert into member (id, pw, name, addr, phone, allergy, gender, birth) values (#{id}, #{pw}, #{name}, #{addr}, #{phone}, #{allergy}, #{gender}, #{birth})
 	</insert>
 	
 	<select id="login" parameterType="member" resultType="string">
@@ -22,11 +21,14 @@
 	</delete>
 	
 	<select id="getInfo" parameterType="string" resultType="member">
-		select id, pw, name, addr, phone, allergy from member where id = #{id}
+		select id, pw, name, m.gender, birth, addr, phone, allergy, k.kcal as kpd
+		from member m inner join kcalperday k
+		where m.gender = k.gender
+		and TIMESTAMPDIFF(year, m.birth, curdate()) = k.age
+		and id = #{id}
 	</select>
 
 	<select id="findPw" parameterType="member" resultType="member">
 		select id, pw, name, addr, phone, allergy from member where id = #{id} and name = #{name} and phone = #{phone}
 	</select>
-
 </mapper>

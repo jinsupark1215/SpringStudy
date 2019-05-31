@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<div v-text="title"></div>
+		<h2 v-if='showvisible'>{{title | add3}}</h2>
+		<h2 v-show='showvisible2'>{{title | toLowCase}}</h2>
+		<h2>{{title | toUpperCase}}</h2>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			data : {
+				title : 'SSAFY',
+				leng : '4'
+			},
+			
+			el : '#first',
+			
+			computed:{
+				showvisible : function(){
+					return this.title.length > this.leng;
+				},
+				showvisible2:function(){
+					return this.title.length < this.leng;
+				}
+			},
+			
+			filters:{
+				add3(value){
+					for(var i = 0; i < 3; i++){
+						value += " 만세";
+					}
+					return value;
+				},
+				toLowCase(value){
+					return value.toLowerCase();
+				},
+				toUpperCase(value){
+					return value.toUpperCase();
+				}
+			}
+		});
+		
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

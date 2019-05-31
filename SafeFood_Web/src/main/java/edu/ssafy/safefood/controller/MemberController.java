@@ -1,7 +1,5 @@
 package edu.ssafy.safefood.controller;
 
-import java.util.Set;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,15 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.ssafy.safefood.dto.Member;
 import edu.ssafy.safefood.service.MemberServiceImpl;
-import edu.ssafy.safefood.service.ZZimServiceImpl;
 
 @Controller
 @RequestMapping(value = "/member", method = { RequestMethod.GET, RequestMethod.POST })
 public class MemberController {
 	@Autowired
 	private MemberServiceImpl memService;
-	@Autowired
-	private ZZimServiceImpl zzimService;
+	
 	private Cookie c;
 	
 	@ExceptionHandler(Exception.class)
@@ -34,7 +30,7 @@ public class MemberController {
 		return "error";
 	}
 
-	@RequestMapping(value = "/resetPw", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/resetPw", method = { RequestMethod.POST })
 	private ModelAndView resetPW(ModelAndView mav, @RequestParam("id")String id, @RequestParam("pwd")String pw) {
 		Member m = memService.getInfo(id);
 
@@ -50,7 +46,7 @@ public class MemberController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/findPW", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/findPW", method = { RequestMethod.POST })
 	private ModelAndView findPW(@RequestParam("id")String id, @RequestParam("name")String name, @RequestParam("phone")String phone, ModelAndView mav) {
 		Member m = memService.findPw(id, name, phone);
 
@@ -64,7 +60,7 @@ public class MemberController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/update", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/update", method = { RequestMethod.POST })
 	private ModelAndView goUpdatePage(ModelAndView mav, HttpServletRequest req, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		Member m = memService.getInfo(id);
@@ -88,6 +84,7 @@ public class MemberController {
 			for (Cookie cook : cookies) {
 				if (cook.getName().equals("id")) {
 					id = cook.getValue();
+					System.out.println("cookie에 있는 id = " + id);
 					Member m = memService.getInfo(id);
 					request.setAttribute("msg", m.getName() + "님 회원가입을 환영합니다.");
 					cook.setMaxAge(0);
@@ -109,6 +106,12 @@ public class MemberController {
 		if (m != null) {
 			mav.addObject("id", m.getId());
 			mav.addObject("name", m.getName());
+			mav.addObject("birth", m.getBirth());
+			if(m.getGender() == 'M') {
+				mav.addObject("gender", "남성");
+			} else if(m.getGender() == 'F') {
+				mav.addObject("gender", "여성");
+			}
 			mav.addObject("addr", m.getAddr());
 			mav.addObject("phone", m.getPhone());
 			mav.addObject("allergy", m.getAllergy());
@@ -127,7 +130,10 @@ public class MemberController {
 		String name = request.getParameter("name");
 		String addr = request.getParameter("addr");
 		String phone = request.getParameter("phone");
+		char gender = request.getParameter("gender").charAt(0);
+		String birth = request.getParameter("birth");
 		String[] allergies = (String[]) request.getParameterValues("allergy");
+		
 		StringBuilder sb = new StringBuilder();
 		if (allergies == null) {
 			allergies = new String[] { "" };
@@ -141,7 +147,7 @@ public class MemberController {
 		String allergy = sb.toString();
 
 		if (memService.getInfo(id) == null) {
-			if (memService.add(new Member(id, pw, name, addr, phone, allergy))) {
+			if (memService.add(id, pw, name, addr, phone, allergy, gender, birth)) {
 				c = new Cookie("id", id);
 				response.addCookie(c);
 				return "redirect:result";
@@ -226,18 +232,12 @@ public class MemberController {
 
 		if (memService.logIn(id, pw) != null) {
 			session.setAttribute("id", id);
-
+			System.out.println("getInfo 전임");
 			Member m = memService.getInfo(id);
 
-			Set<Integer> set = zzimService.getZZimList(id);
-			
-			if(set == null) {
-				System.out.println("찜리스트 비었음");
-			} else {
-				session.setAttribute("zzimlist", set);
-				System.out.println(set.toString());
-			}
-			session.setAttribute("allergy", m.getAllergy());
+			System.out.println("알러지 설정 전임");
+//			session.setAttribute("allergy", m.getAllergy());
+			System.out.println("login에서 redirect 전임");
 			return "redirect:../";
 		} else {
 			request.setAttribute("msg", "아이디 또는 패스워드가 다릅니다");

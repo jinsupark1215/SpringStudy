@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		좋아하는 것은 : <input type="text" v-model='fav'>
+		<div v-if="fav=='공부'">공부</div>
+		<div v-else-if="fav=='여행'">여행</div>
+		<div v-else>효도</div>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el : "#first",
+			data : {fav:''}
+		});
+
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

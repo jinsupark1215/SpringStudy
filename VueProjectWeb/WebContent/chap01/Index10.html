@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<svg width="500" height="500">
+			<my-svg ccx='200' ccy='200' cr='30'/>
+			<my-svg ccx='100' ccy='100' cr='50'/>
+			<my-svg ccx='200' ccy='50' cr='30'/>
+		</svg>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : "#first",
+			components:{
+				'my-svg' : {
+					props:['ccx', 'ccy', 'cr'],
+					template: '<circle :cx="ccx" :cy="ccy" :r="cr" stroke="red" stroke-width="2" fill="red" />'
+				}
+			}
+		});
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

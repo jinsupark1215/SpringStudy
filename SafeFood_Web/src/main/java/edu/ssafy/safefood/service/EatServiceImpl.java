@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import edu.ssafy.safefood.dto.Eat;
+import edu.ssafy.safefood.dto.Food;
 import edu.ssafy.safefood.repository.EatDAO;
 
 @Service("EatServiceImpl")
@@ -85,6 +86,21 @@ public class EatServiceImpl implements EatService {
 				return null;
 			} else {
 				return (ArrayList<Eat>) list;
+			}
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public ArrayList<Food> recommend(int kcal) throws Exception {
+		List<Food> list;
+		try {
+			list = dao.recommend(kcal);
+			if (list.isEmpty()) {
+				return null;
+			} else {
+				return (ArrayList<Food>) list;
 			}
 		} catch (Exception e) {
 			return null;

@@ -14,20 +14,22 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO dao;
 
 	@Override
-	public boolean add(Member m) {
+	public boolean add(String id, String pw, String name, String addr, String phone, String allergy, char gender, String birth) {
 		try {
-			dao.add(m);
+			dao.add(new Member(id, pw, name, addr, phone, allergy, gender, birth));
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
-
+	
 	@Override
 	public String logIn(String id, String pw) {
 		try {
 			return dao.logIn(id, pw);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -38,6 +40,7 @@ public class MemberServiceImpl implements MemberService {
 			dao.update(m);
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -48,6 +51,7 @@ public class MemberServiceImpl implements MemberService {
 			dao.delete(id, pw);
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -57,6 +61,7 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			return dao.getInfo(id);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -66,6 +71,7 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			return dao.findPw(id, name, phone);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

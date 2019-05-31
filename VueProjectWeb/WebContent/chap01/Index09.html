@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<div v-text="title"></div>
+	</div>
+
+	<script type="text/javascript">
+		var model = {
+			title : 'SSAFY'
+		}
+
+		var app = new Vue({
+			el : '#first',
+			data : model,
+			beforeCreate:function(){
+				console.log('beforeCreate title : ' + this.title);
+			},
+			created:function(){
+				console.log('created title : ' + this.title);
+			},
+			beforeMount:function(){
+				console.log('beforeMount title : ' + this.title);
+			},
+			mounted:function(){
+				console.log('mounted title : ' + this.title);
+			},
+			beforeUpdate:function(){
+				console.log('beforeUpdate title : ' + this.title);
+			},
+			updated:function(){
+				console.log('updated title : ' + this.title);
+			},
+			beforeDestroy:function(){
+				console.log('beforeDestroy title : ' + this.title);
+			},
+			destroyed:function(){
+				console.log('destroyed title : ' + this.title);
+			}
+		});
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

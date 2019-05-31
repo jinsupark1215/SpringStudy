@@ -37,7 +37,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="col-md-offset-4 col-md-4" id="outer">
 			<p class="h3 mb-3 font-weight-normal" id="signText">회원 정보 확인</p>
@@ -65,6 +65,6 @@
 			</form>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

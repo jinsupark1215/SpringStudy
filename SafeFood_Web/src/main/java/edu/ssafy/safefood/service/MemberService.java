@@ -4,7 +4,8 @@ import edu.ssafy.safefood.dto.Member;
 
 public interface MemberService {
 	/** 멤버 추가 */
-	public boolean add(Member m);
+	public boolean add(String id, String pw, String name, String addr, String phone, String allergy, char gender,
+			String birth);
 
 	/** 로그인 */
 	public String logIn(String id, String pw);

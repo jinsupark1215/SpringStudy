@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript">
+	var model;
+	var app;
+	window.onload = function() {
+		model = {
+			title : "SSAFY 만세"
+		};
+
+		app = new Vue({
+			data : model,
+			el : '#first'
+		});
+		Vue.config.devtools = true;
+	}
+</script>
+</head>
+<body>
+	<div id="first">
+		<h1>{{title}}</h1>
+	</div>
+	<!--
+	<script type="text/javascript">
+		var model = {
+			title : "SSAFY 만세"
+		};
+
+		var app = new Vue({
+			data : model,
+			el : '#first'
+		});
+		Vue.config.devtools = true;
+	</script>
+	-->
+</body>
+</html>

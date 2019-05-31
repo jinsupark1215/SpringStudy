@@ -2,10 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-	session = request.getSession();
-	String id = (String) session.getAttribute("id");
-%>
 <meta charset="UTF-8">
 <title>로그인성공</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -21,15 +17,15 @@
 	text-align: center;
 }
 
-.btn{
+#btns{
 	text-align: center;
 }
 </style>
 </head>
 <body>
 	<div class="container" id="outer">
-		<h1><%=id%> 님 로그인 되었습니다.!!!</h1>
-		<div class="col-md-offset-1 col-md-10">
+		<h1>${id} 님 로그인 되었습니다.!!!</h1>
+		<div id="btns">
 			<button type="button" class="btn btn-info" onclick="location.href = 'member/mypage'">내 정보 확인</button>
 			<button type="button" class="btn btn-warning" onclick="location.href = 'member/goUpdate'">내 정보 수정</button>
 			<button type="button" class="btn btn-success" onclick="location.href = 'member/logOut'">로그아웃</button>

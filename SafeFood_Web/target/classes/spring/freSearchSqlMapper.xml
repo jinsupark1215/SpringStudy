@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="freSearchMapper">
+<!-- 자주검색 전체리스트 가져오기 -->
+	<select id="selectFreSearchList" resultType="freSearch">
+		select * from freSearch order by cnt desc;
+	</select>
+
+	<!-- 자주검색 특정 키워드 추가 -->
+	<insert id="addFreSearch" parameterType="string">
+		insert into freSearch (searchWord, cnt) values (#{searchWord}, 1)
+	</insert>
+	<!-- 자주검색 특정 키워드 카운트 추가 -->
+	<update id="addCount" parameterType="string">
+		update freSearch set cnt=cnt+1 where searchWord = #{searchWord}
+	</update>
+	
+</mapper>

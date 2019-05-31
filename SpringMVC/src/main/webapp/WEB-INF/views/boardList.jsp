@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*, edu.ssafy.board.dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,10 +96,14 @@ table thead tr th {
 .search{
 	float: right;
 }
+
+#btns{
+	text-align: center;
+}
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="container" id="outer">
 			<p class="h3 mb-3 font-weight-normal" id="signText">게시글 리스트</p>
@@ -133,30 +134,26 @@ table thead tr th {
 							</tr>
 						</thead>
 						<tbody>
-							<%
-								for (int i = 0; i < list.size(); i++) {
-							%>
-							<tr>
-								<td><%=list.get(i).getSeq()%></td>
-								<td><a href="detail?seq=<%=list.get(i).getSeq()%>"><%=list.get(i).getTitle()%></a></td>
-								<td><%=list.get(i).getWriter()%></td>
-								<td><%=list.get(i).getRegDate()%></td>
-								<td><%=list.get(i).getCnt()%></td>
-							</tr>
-							<%
-								}
-							%>
+							<c:forEach items="${list}" var="board">
+								<tr>
+									<td>${board.seq}</td>
+									<td><a href="detail?seq=${board.seq}">${board.title}</a></td>
+									<td>${board.writer}</td>
+									<td>${board.regDate}</td>
+									<td>${board.cnt}</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
 
-				<div class="col-md-offset-3 col-md-10">
+				<div class="row" id="btns">
 					<button type="button" class="bottom btn btn-info" onclick="location.href = '../'">확인</button>
 					<button type="button" class="bottom btn btn-warning" onclick="location.href = 'goRegist'">게시글 등록</button>
 				</div>
 			</form>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

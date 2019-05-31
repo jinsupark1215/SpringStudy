@@ -33,12 +33,21 @@ public class Food implements Comparable<Food>{
 	/**이미지 경로*/
 	protected String img;
 	protected String allergy;
+	protected int foodtype;
 	
+	public int getFoodtype() {
+		return foodtype;
+	}
+
+	public void setFoodtype(int foodtype) {
+		this.foodtype = foodtype;
+	}
+
 	public Food() {}
 	
 	public Food(int code, String name, double supportpereat, double calory, double carbo, double protein, double fat,
 			double sugar, double natrium, double chole, double fattyacid, double transfat, String maker,
-			String material, String img, String allergy) {
+			String material, String img, String allergy, int foodtype) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -56,6 +65,7 @@ public class Food implements Comparable<Food>{
 		this.material = material;
 		this.img = img;
 		this.allergy = allergy;
+		this.foodtype = foodtype;
 	}
 	public Food(Food food) {
 		this.code = food.code;
@@ -74,6 +84,7 @@ public class Food implements Comparable<Food>{
 		this.material = food.material;
 		this.img = food.img;
 		this.allergy = food.allergy;
+		this.foodtype = food.foodtype;
 	}
 	public Food(int code) {
 		super();

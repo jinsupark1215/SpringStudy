@@ -27,13 +27,20 @@
 	</select>
 	
 	<select id="bestEat" parameterType="map" resultType="eat">
-		select code, sum(count) from eat
+		select code, sum(count) as count from eat
 		<choose>
 			<when test="start != null">
 				where date between #{start} and #{end}
 			</when>
 		</choose>
 		group by code
+		order by count desc
+	</select>
+	
+	<select id="recommend" parameterType="int" resultType="food">
+		<![CDATA[
+			select code, name, calory, carbo, protein, fat, sugar, natrium, chole, fattyacid, transfat, maker, material, img from food where calory <= #{kcal} order by rand()
+    	]]>
 	</select>
 	
 </mapper>

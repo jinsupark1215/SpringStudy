@@ -38,7 +38,7 @@ h1{
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="row" id="box">
 		<div class="container" id="outer">
 			<h1>${msg}</h1>
@@ -49,6 +49,6 @@ h1{
 			</div>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

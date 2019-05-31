@@ -9,96 +9,124 @@
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	var id;
-	var pwd;
-	var checkPwd;
-	var name;
-	var addr;
-	var phone;
-	var allergy = new Array();
+var id;
+var pwd;
+var checkPwd;
+var name;
+var addr;
+var phone;
+var allergy = new Array();
+var birth;
 
-	$(function() {
-		$("#submitBtn").on('click', function(source) {
-			id = $("#id").val();
-			pwd = $("#pwd").val();
-			checkPwd = $("#checkPwd").val();
-			name = $("#name").val();
-			addr = $("#addr").val();
-			phone = $("#phone").val();
-			$('input:checkbox[name="allergy"]').each(function() {
-				if (this.checked == true) {
-					allergy.push(this.value);
-				}
-			});
-			
-			if(id.length == 0){
-				alert("회원아이디는 필수입력 항목입니다.");
-				source.preventDefault()
-				return;
+$(function() {
+	$("#submitBtn").on('click', function(source) {
+		id = $("#id").val();
+		pwd = $("#pwd").val();
+		checkPwd = $("#checkPwd").val();
+		name = $("#name").val();
+		addr = $("#addr").val();
+		phone = $("#phone").val();
+		birth = $("#birth").val();
+		var radioVal = $('input[name="radioTxt"]:checked').val();
+		$('input:checkbox[name="allergy"]').each(function() {
+			if (this.checked == true) {
+				allergy.push(this.value);
 			}
-			
-			if(pwd.length == 0){
-				alert("비밀번호는 필수입력 항목입니다.");
-				source.preventDefault()
-				return;
-			}
-			
-			if(pwd.length < 6){
-				alert("비밀번호는 영문 숫자 포함 6자리 이상입니다.")
-				source.preventDefault()
-				return;
-			}
-			
-			if (pwd != checkPwd){
-				alert("입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다.")
-				source.preventDefault()
-				return;
-			}
-			
-			if(name.length == 0){
-				alert("회원이름은 필수입력 항목입니다.");
-				source.preventDefault()
-				return;
-			}
-			
-			if(phone.length == 0){
-				alert("전화번호는 필수입력 항목입니다.");
-				source.preventDefault()
-				return;
-			}
-			
-			$("#form").attr("action", "/member/regist");
-			$("#form").submit();
 		});
 		
-		$("#cancelBtn").on('click', function(source) {
-			$("#form").attr("action", "../");
-			$("#form").submit();
-		});
+		if(id.length == 0){
+			alert("회원아이디는 필수입력 항목입니다.");
+			source.preventDefault()
+			return;
+		}
+		
+		if(pwd.length == 0){
+			alert("비밀번호는 필수입력 항목입니다.");
+			source.preventDefault()
+			return;
+		}
+		
+		if(pwd.length < 6){
+			alert("비밀번호는 영문 숫자 포함 6자리 이상입니다.")
+			source.preventDefault()
+			return;
+		}
+		
+		if (pwd != checkPwd){
+			alert("입력하신 비밀번호와 비밀번호 확인이 일치하지 않습니다.")
+			source.preventDefault()
+			return;
+		}
+		
+		if(name.length == 0){
+			alert("회원이름은 필수입력 항목입니다.");
+			source.preventDefault()
+			return;
+		}
+		
+		if(phone.length == 0){
+			alert("전화번호는 필수입력 항목입니다.");
+			source.preventDefault()
+			return;
+		}
+		
+		if(birth.length == 0){
+			alert("생일은 필수입력 항목입니다.");
+			source.preventDefault()
+			return;
+		}
+		
+		var todayArray = getRecentDate().split('-');
+		var birthArray = birth.split('-');
+		var today = new Date(todayArray[0], todayArray[1], todayArray[2]);
+	    var birth_date = new Date(birthArray[0], birthArray[1], birthArray[2]);
+	    if(today.getTime() < birth_date.getTime()){
+        	alert("생일을 제대로 입력하세요");
+        	source.preventDefault()
+        	return;
+        }
+		
+		$("#form").attr("action", "/member/regist");
+		$("#form").submit();
 	});
+	
+	$("#cancelBtn").on('click', function(source) {
+		$("#form").attr("action", "../");
+		$("#form").submit();
+	});
+});
+
+function getRecentDate(){
+    var dt = new Date();
+ 
+    var recentYear = dt.getFullYear();
+    var recentMonth = dt.getMonth() + 1;
+    var recentDay = dt.getDate();
+ 
+    if(recentMonth < 10) recentMonth = "0" + recentMonth;
+    if(recentDay < 10) recentDay = "0" + recentDay;
+ 
+    return recentYear + "-" + recentMonth + "-" + recentDay;
+}
 </script>
 <style type="text/css">
 *{
 	font-family: 'Gamja Flower', cursive;
 }
 
-#box {
-	background-color: gray;
-	padding-bottom: 3%;
-}
-
 #outer {
-	background-color: #F5F5F5;
-	border-radius: 20px;
-	margin-top: 3%;
+	margin-top: 5%;
 	padding: 40px;
 	padding-top: 5px;
+	border: 2px solid;
 }
 
 #signText {
 	font-size: 3em;
 	font-weight: bold;
-	color: gray;
+	padding-left: 1%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 fieldset.allergyField {
@@ -128,9 +156,8 @@ legend.allergyField {
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="row" id="box">
 		<div class="container" id="outer">
-			<p class="h3 mb-3 font-weight-normal" id="signText">회원 가입</p>
+			<h3 id="signText">회원 가입</h3>
 			<form class="form-horizontal" id="form" action="#" method="post">
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-2" for="id">아이디<span style="color: red"> *</span></label>
@@ -161,6 +188,23 @@ legend.allergyField {
 					<div class="col-md-9">
 						<input type="text" class="form-control" name="name" id="name" placeholder="User Name">
 						<span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+					</div>
+				</div>
+
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label col-md-2" for="gender">성별<span style="color: red"> *</span></label>
+					<div class="col-md-9" style="padding-top: 5px;">
+						<input name="gender" class="op form-check-input" type="radio" value="M" style="margin-right: 5px;" checked>
+						<label class="form-check-label" style="margin-right: 10px;">남자</label>
+						<input name="gender" class="op form-check-input" type="radio" value="F" style="margin-right: 5px;">
+						<label class="form-check-label">여자</label>
+					</div>
+				</div>
+
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label col-md-2" for="birth">생일<span style="color: red"> *</span></label>
+					<div class="col-md-9">
+						<input type="date" class="form-control" name="birth" id="birth">
 					</div>
 				</div>
 
@@ -244,7 +288,6 @@ legend.allergyField {
 				
 			</form>
 		</div>
-	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

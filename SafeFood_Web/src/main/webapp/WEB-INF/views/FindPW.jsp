@@ -53,30 +53,27 @@
 	font-family: 'Stylish', sans-serif;
 }
 
-#box{
-	background-color: gray;
-	padding-bottom: 3%;
-}
 #outer {
-	background-color: #F5F5F5;
-	border-radius: 20px;
-	margin-top: 3%;
+	margin-top: 9%;
 	padding: 40px;
 	padding-top: 5px;
+	border : 2px solid;
 }
 
 #signText {
 	font-size: 3em;
 	font-weight: bold;
-	color: gray;
+	padding-left: 1%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="row" id="box">
+	<div style="min-height: 455px">
 		<div class="container" id="outer">
-			<p class="h3 mb-3 font-weight-normal" id="signText">비밀번호 찾기</p>
+			<h3 id="signText">비밀번호 찾기</h3>
 			<form class="form-horizontal" action="#" method="post" id="form">
 				
 				<div class="form-group has-primary has-feedback">
@@ -85,7 +82,7 @@
 						<input type="text" class="form-control" name="id" id="id" required>
 					</div>
 				</div>
-
+	
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-2" for="name">이름</label>
 					<div class="col-md-9">
@@ -110,7 +107,6 @@
 						</button>
 					</div>
 				</div>
-				
 			</form>
 		</div>
 	</div>

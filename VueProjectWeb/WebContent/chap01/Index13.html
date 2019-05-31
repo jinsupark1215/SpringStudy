@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<img width="400" height="400" v-bind:src="imgpath">
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : "#first",
+			data : {
+				imgpath : 'maxresdefault.jpg'
+			}
+		});
+
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

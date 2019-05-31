@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<ul>
+			<li v-for='o, index in member'>{{index + 1}} : {{o.name}} : {{o.age}}</li>
+		</ul>
+		<ul>
+			<li v-for='o, key, index in name'>{{index + 1}} : {{key}} : {{o}}</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el : "#first",
+			data : {
+				member : [
+					{ name : '홍길동', age : 21 },
+					{ name : '고길동', age : 31 },
+					{ name : '박길동', age : 41 }
+				],
+				name : {
+					과장 : '정준태',
+					대리 : '김준희',
+					사원 : '박현빈'
+				}
+			}
+		});
+
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

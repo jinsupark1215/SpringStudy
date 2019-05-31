@@ -33,7 +33,11 @@
 				<value>classpath:/spring/memberSqlMapper.xml</value>
 				<value>classpath:/spring/eatSqlMapper.xml</value>
 				<value>classpath:/spring/foodSqlMapper.xml</value>
-				<value>classpath:/spring/zzimSqlMapper.xml</value>
+				<value>classpath:/spring/boardSqlMapper.xml</value>
+				<value>classpath:/spring/qnaSqlMapper.xml</value>
+				<value>classpath:/spring/freSearchSqlMapper.xml</value>
+				<value>classpath:/spring/healthSqlMapper.xml</value>
+				<value>classpath:/spring/exerciseSqlMapper.xml</value>
 			</list>
 		</property>
 	</bean>

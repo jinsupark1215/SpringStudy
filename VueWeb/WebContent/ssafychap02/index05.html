@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SSAFY</title>
+  <style type="text/css">
+  #first div {color: blue ;}
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id='first'>
+   <h1>{{title}}</h1>
+   <h1>{{msg}}</h1>
+   <button @click="change1" >변화보기</button>
+   <button @click="change2" >변화보기</button>
+</div>
+<script type="text/javascript">
+  var model = {title : 'ssafy', msg:'변화합니다'};
+  var first = new Vue({
+      el : '#first',
+      data : model,
+      methods: {
+    	  change1: function (){
+    		  return this.title += '만세 ';
+    	  },
+    	  change2: function (){
+    		  return this.msg += '만세 ';
+    	  }
+      },
+      watch: {
+     	    title: function (newVal,oldVal) {
+     	       this.msg = oldVal+" 에서 "+newVal+" 로 변화" 
+     	    }
+        } 
+   });
+  Vue.config.devtools = true;
+ </script>
+</body>
+</html>

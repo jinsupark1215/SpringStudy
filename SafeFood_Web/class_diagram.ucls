@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.14" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="edu.ssafy.safefood.controller.BoardController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/BoardController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="305" x="4216" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="edu.ssafy.safefood.controller.HealthController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/HealthController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="370" x="3505" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="edu.ssafy.safefood.controller.HomeController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/HomeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="250" x="2681" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="edu.ssafy.safefood.controller.QnaController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/QnaController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="247" x="1983" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="edu.ssafy.safefood.controller.FoodController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/FoodController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="301" x="3164" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="edu.ssafy.safefood.controller.MemberController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/MemberController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="369" width="411" x="3765" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="edu.ssafy.safefood.controller.EatController" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/controller/EatController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="411" x="2432" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="edu.ssafy.safefood.dto.QnA" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/QnA.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="621" width="267" x="43" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="edu.ssafy.safefood.dto.FreSearch" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/FreSearch.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="161" x="1388" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="edu.ssafy.safefood.dto.Food" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/Food.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1089" width="588" x="350" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="edu.ssafy.safefood.dto.Board" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/Board.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="181" x="978" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="edu.ssafy.safefood.dto.Health" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/Health.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="657" width="354" x="1589" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="edu.ssafy.safefood.dto.Member" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/Member.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="693" width="310" x="2270" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="edu.ssafy.safefood.dto.Exercise" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/Exercise.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="149" x="1199" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="edu.ssafy.safefood.dto.Eat" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/dto/Eat.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="122" x="2270" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="edu.ssafy.safefood.repository.MemberDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/MemberDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="199" x="4460" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="edu.ssafy.safefood.repository.ExerciseDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/ExerciseDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="168" x="2448" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="edu.ssafy.safefood.repository.EatDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/EatDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="240" x="1656" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="edu.ssafy.safefood.repository.FreSearchDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/FreSearchDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="211" x="3439" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="20" language="java" name="edu.ssafy.safefood.repository.HealthDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/HealthDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="220" x="2904" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="21" language="java" name="edu.ssafy.safefood.repository.EatDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/EatDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="240" x="1888" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="22" language="java" name="edu.ssafy.safefood.repository.HealthDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/HealthDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="220" x="2971" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="edu.ssafy.safefood.repository.BoardDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/BoardDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="138" x="4437" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="edu.ssafy.safefood.repository.QnADAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/QnADAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="138" x="1478" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="25" language="java" name="edu.ssafy.safefood.repository.FoodDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/FoodDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="227" x="3132" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="26" language="java" name="edu.ssafy.safefood.repository.MemberDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/MemberDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="199" x="4075" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="27" language="java" name="edu.ssafy.safefood.repository.FreSearchDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/FreSearchDAO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="211" x="3399" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="28" language="java" name="edu.ssafy.safefood.repository.FoodDAOImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/FoodDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="227" x="3172" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="29" language="java" name="edu.ssafy.safefood.repository.BoardDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/BoardDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="138" x="4282" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="30" language="java" name="edu.ssafy.safefood.repository.QnADAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/QnADAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="138" x="1478" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="31" language="java" name="edu.ssafy.safefood.repository.ExerciseDAO" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/repository/ExerciseDAO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="168" x="2448" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="32" language="java" name="edu.ssafy.safefood.service.EatService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/EatService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="240" x="2168" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="33" language="java" name="edu.ssafy.safefood.service.EatServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/EatServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="240" x="2168" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="34" language="java" name="edu.ssafy.safefood.service.QnAService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/QnAService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="192" x="1936" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="35" language="java" name="edu.ssafy.safefood.service.BoardService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/BoardService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="181" x="4061" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="36" language="java" name="edu.ssafy.safefood.service.FoodServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/FoodServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="228" x="2904" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="edu.ssafy.safefood.service.QnAServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/QnAServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="192" x="1936" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="38" language="java" name="edu.ssafy.safefood.service.ExerciseService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/ExerciseService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="168" x="2656" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="39" language="java" name="edu.ssafy.safefood.service.MemberServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/MemberServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="331" x="3690" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="40" language="java" name="edu.ssafy.safefood.service.MemberService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/MemberService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="331" x="3690" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="41" language="java" name="edu.ssafy.safefood.service.HealthServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/HealthServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="220" x="3231" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="edu.ssafy.safefood.service.ExerciseServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/ExerciseServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="168" x="2656" y="1575"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="43" language="java" name="edu.ssafy.safefood.service.HealthService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/HealthService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="220" x="3505" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="44" language="java" name="edu.ssafy.safefood.service.BoardServiceImpl" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/BoardServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="181" x="4216" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="45" language="java" name="edu.ssafy.safefood.service.FoodService" project="SafeFood_Web" 
+    file="/SafeFood_Web/src/main/java/edu/ssafy/safefood/service/FoodService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="228" x="2864" y="1840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <realization id="46">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <realization id="47">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <realization id="48">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <association id="49">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="50" name="hdao"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="52">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="40"/>  
+  </realization>  
+  <association id="53">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="54" name="dao"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="57" name="boardSer"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="59">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="60" name="memService"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="63" name="dao"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="66" name="ec"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="68">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="43"/>  
+  </realization>  
+  <association id="69">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="70" name="dao"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="72">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="27"/>  
+  </realization>  
+  <realization id="73">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="30"/>  
+  </realization>  
+  <association id="74">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="75" name="dao"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="77">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <association id="78">    
+    <bendpoint x="2873" y="1166"/>    
+    <bendpoint x="2873" y="1575"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="79" name="foodService"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="81">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <association id="82">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="83" name="dao"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="86" name="eatService"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="88">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="89">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="90" name="foodService"/>      
+      <multiplicity id="91" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="93" name="ser"/>      
+      <multiplicity id="94" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="95">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="96" name="memService"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="98">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="99" name="eat"/>      
+      <multiplicity id="100" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="102" name="fdao"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="105" name="qnaSer"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="108" name="foodService"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="111" name="exeService"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="113">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="114">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="115" name="memService"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="117">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <realization id="118">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <realization id="119">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="120">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="121" name="dao"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="123">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="38"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

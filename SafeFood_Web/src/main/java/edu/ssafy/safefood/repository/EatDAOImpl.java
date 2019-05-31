@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.ssafy.safefood.dto.Eat;
+import edu.ssafy.safefood.dto.Food;
 
 @Repository("EatDAOImpl")
 public class EatDAOImpl implements EatDAO {
@@ -86,6 +87,16 @@ public class EatDAOImpl implements EatDAO {
 			return null;
 		} else {
 			return (ArrayList<Eat>) eat;
+		}
+	}
+
+	@Override
+	public ArrayList<Food> recommend(int kcal) throws Exception {
+		List<Food> recoFood = session.selectList("eatMapper.recommend", kcal);
+		if(recoFood.isEmpty()) {
+			return null;
+		} else {
+			return (ArrayList<Food>) recoFood;
 		}
 	}
 

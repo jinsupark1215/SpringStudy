@@ -8,16 +8,14 @@
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
 <style type="text/css">
-*{
+* {
 	font-family: 'Stylish', sans-serif;
 }
 
 #footer {
 	background-color: #fafafa;
-	padding-left: 10%;
-	padding-top: 1%;
-	padding-bottom: 1%;
 	margin-top: 3%;
+	margin-bottom: 0;
 }
 
 #footer li {
@@ -25,30 +23,28 @@
 }
 
 #copyright {
-	background-color: #f5f5f5;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	margin: 0;
 	text-align: center;
-	color: #999999;
+}
+
+.myGlyp{
+	margin-right: 1%;
 }
 </style>
 </head>
 <body>
-	<div class="col-md-12" id="footer">
-		<div class="col-md-offset-2 col-md-4">
+	<nav class="navbar navbar-bottom" id="footer">
+		<div class="container">
 			<h3>Find Us</h3>
 			<hr style="margin-bottom: 10px">
 			<ul class="list-unstyled">
-				<li><i class="glyphicon glyphicon-map-marker"
-					style="color: #00D8FF;"></i> (SSAFY)서울시 강남구 테헤란로 멀티스퀘어</li>
-				<li><i class="glyphicon glyphicon-earphone"
-					style="color: #00D8FF;"></i> 1544-9011</li>
-				<li><i class="glyphicon glyphicon-envelope"
-					style="color: #00D8FF;"> admin@ssafy.com</i></li>
+				<li><i class="myGlyp glyphicon glyphicon-map-marker" style="color: #00D8FF;"></i>(SSAFY)서울시 강남구 테헤란로 멀티스퀘어</li>
+				<li><i class="myGlyp glyphicon glyphicon-earphone" style="color: #00D8FF;"></i>1544-9011</li>
+				<li><i class="myGlyp glyphicon glyphicon-envelope" style="color: #00D8FF;"></i>admin@ssafy.com</li>
 			</ul>
 		</div>
-	</div>
-	<div class="col-md-12" id="copyright">Copyright by SSAFY. All rights reserved.</div>
+		<div class="container" id="copyright">Copyright by SSAFY. All rights reserved.</div>
+	</nav>
 </body>
 </html>

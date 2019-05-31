@@ -12,15 +12,10 @@
 	font-family: 'Stylish', sans-serif;
 }
 
-#box{
-	background-color: gray;
-	padding-bottom: 3%;
-}
 #outer {
-	background-color: #F5F5F5;
-	border-radius: 20px;
-	margin-top: 3%;
-	padding: 40px;
+	margin-top: 12%;
+	padding-top: 5px;
+	border : 2px solid;
 }
 
 #btnGroup {
@@ -40,7 +35,7 @@ h1{
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="row" id="box">
+	<div style="min-height: 400px">
 		<div class="container" id="outer">
 			<h1>${msg}</h1>
 			<div class="row" id="btnGroup">

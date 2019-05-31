@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<div v-text="title"></div>
+		{{hello()}}
+	</div>
+
+	<div id="second">
+		<button onclick="hello('안녕하세요')">클릭하세요</button>
+	</div>
+
+	<input type="button" id="third" onclick="hello2(this)" value="hello2">
+
+	<script type="text/javascript">
+		var model = {
+			title : 'SSAFY'
+		}
+
+		var app = new Vue({
+			el : '#first',
+			data : model,
+			methods:{
+				hello:function(){
+					alert('hello 커몬');
+				}
+			}
+		});
+		
+		function hello(val){
+			app.title = val;
+		}
+
+		function hello2(val){
+			app.title = val.value;
+			if(val.value == app.$data.title){
+				alert(app.title);
+			}
+		}
+
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

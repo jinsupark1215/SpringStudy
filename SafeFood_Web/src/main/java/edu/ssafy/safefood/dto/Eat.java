@@ -12,7 +12,7 @@ public class Eat implements Comparable<Eat> {
 	public Eat() {
 
 	}
-	
+
 	public Eat(int code, String date) {
 		this.code = code;
 		this.date = date;
@@ -55,6 +55,15 @@ public class Eat implements Comparable<Eat> {
 
 	@Override
 	public int compareTo(Eat o) {
+		if(this.date == null && o.date == null) {
+			if(this.count < o.count) {
+				return 1;
+			} else if (this.count == o.count) {
+				return this.code - o.code;
+			} else {
+				return -1;
+			}
+		}
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date one;
 		try {

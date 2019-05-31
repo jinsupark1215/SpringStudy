@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,7 +20,6 @@ import edu.ssafy.board.service.MemberService;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private Cookie c;
 
 	@Autowired
@@ -136,7 +133,6 @@ public class MemberController {
 		
 		System.out.println("id = " + id);
 		System.out.println("pw = " + pw);
-		session = req.getSession();
 
 		if (memSer.logIn(id, pw) != null) {
 			session.setAttribute("id", id);

@@ -41,7 +41,7 @@
 		});
 
 		$("#cancelBtn").on('click', function(source) {
-			$("#form").attr("action", "../");
+			$("#form").attr("action", "/member/mypage");
 			$("#form").submit();
 		});
 	});
@@ -51,23 +51,19 @@
 	font-family: 'Stylish', sans-serif;
 }
 
-#box {
-	background-color: gray;
-	padding-bottom: 3%;
-}
-
 #outer {
-	background-color: #F5F5F5;
-	border-radius: 20px;
-	margin-top: 3%;
+	margin-top: 6%;
 	padding: 40px;
 	padding-top: 5px;
+	border: 2px solid;
 }
 
 #signText {
 	font-size: 3em;
 	font-weight: bold;
-	color: gray;
+	padding-left: 1%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 fieldset.allergyField {
@@ -101,84 +97,82 @@ legend.allergyField {
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="row" id="box">
-		<div class="container" id="outer">
-			<p class="h3 mb-3 font-weight-normal" id="signText">회원 정보 수정</p>
-			<form class="form-horizontal" id="form" action="#" method="post">
-				<div class="form-group has-primary has-feedback">
-					<label class="control-label col-md-2" for="id">아이디</label>
-					<div class="data col-md-5" id="id">${id}</div>
-				</div>
+	<div class="container" id="outer">
+		<h3 class="signText">회원 정보 수정</h3>
+		<form class="form-horizontal" id="form" action="#" method="post">
+			<div class="form-group has-primary has-feedback">
+				<label class="control-label col-md-2" for="id">아이디</label>
+				<div class="data col-md-5" id="id">${id}</div>
+			</div>
 
-				<div class="form-group has-primary has-feedback">
-					<label class="control-label col-md-2" for="pwd">비밀번호</label>
-					<div class="col-md-9">
-						<input type="password" class="form-control" name="pwd" id="pwd" placeholder="영문 숫자 포함 6자리 이상">
-						<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
-					</div>
+			<div class="form-group has-primary has-feedback">
+				<label class="control-label col-md-2" for="pwd">비밀번호</label>
+				<div class="col-md-9">
+					<input type="password" class="form-control" name="pwd" id="pwd" placeholder="영문 숫자 포함 6자리 이상">
+					<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
 				</div>
+			</div>
 
-				<div class="form-group has-primary has-feedback">
-					<label class="control-label col-md-2" for="name">이름</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" name="name" id="name" placeholder="User Name">
-						<span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
-					</div>
+			<div class="form-group has-primary has-feedback">
+				<label class="control-label col-md-2" for="name">이름</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" name="name" id="name" placeholder="User Name">
+					<span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
 				</div>
+			</div>
 
-				<div class="form-group has-primary has-feedback">
-					<label class="control-label col-md-2" for="addr">주소</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" name="addr" id="addr" placeholder="address">
-						<span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
-					</div>
+			<div class="form-group has-primary has-feedback">
+				<label class="control-label col-md-2" for="addr">주소</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" name="addr" id="addr" placeholder="address">
+					<span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
 				</div>
+			</div>
 
-				<div class="form-group has-primary has-feedback">
-					<label class="control-label col-md-2" for="phone">전화번호</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" name="phone" id="phone" placeholder="010-xxxx-xxxx">
-						<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
-					</div>
+			<div class="form-group has-primary has-feedback">
+				<label class="control-label col-md-2" for="phone">전화번호</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" name="phone" id="phone" placeholder="010-xxxx-xxxx">
+					<span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
 				</div>
+			</div>
 
-				<div class="form-group has-primary has-feedback">
-					<label class="control-label col-md-2" for="allergy">알레르기</label>
-					<div class="col-md-9" id="allergyList">
-						<fieldset class="allergyField" style="margin-left: 5px;">
-							<legend class="allergyField">Check</legend>
-							<%
-								for(String a : allergies) {
-									if(aller.contains(a)){
-							%>
-									<div class="allergyChk form-check col-md-2">
-										<input name="allergy" class="op form-check-input" type="checkbox" value="<%=a%>" checked><label class="form-check-label"><%=a%></label>
-									</div>
-							<%			
-									} else {
-							%>
-									<div class="allergyChk form-check col-md-2">
-										<input name="allergy" class="op form-check-input" type="checkbox" value="<%=a%>"><label class="form-check-label"><%=a%></label>
-									</div>
-							<%
-									}
+			<div class="form-group has-primary has-feedback">
+				<label class="control-label col-md-2" for="allergy">알레르기</label>
+				<div class="col-md-9" id="allergyList">
+					<fieldset class="allergyField" style="margin-left: 5px;">
+						<legend class="allergyField">Check</legend>
+						<%
+							for(String a : allergies) {
+								if(aller.contains(a)){
+						%>
+								<div class="allergyChk form-check col-md-2">
+									<input name="allergy" class="op form-check-input" type="checkbox" value="<%=a%>" checked><label class="form-check-label"><%=a%></label>
+								</div>
+						<%			
+								} else {
+						%>
+								<div class="allergyChk form-check col-md-2">
+									<input name="allergy" class="op form-check-input" type="checkbox" value="<%=a%>"><label class="form-check-label"><%=a%></label>
+								</div>
+						<%
 								}
-							%>
-						</fieldset>
-					</div>
+							}
+						%>
+					</fieldset>
 				</div>
-				<div class="form-group">
-					<div class="col-md-offset-2 col-md-10">
-						<button type="submit" class="btn btn-info" id="updateBtn">
-							수정<span class="glyphicon glyphicon-ok" style="margin-left: 15px"></span>
-						</button>
-						<button type="submit" class="btn btn-danger" id="cancelBtn">
-							취소<span class="glyphicon glyphicon-remove" style="margin-left: 15px"></span>
-						</button>
-					</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<button type="submit" class="btn btn-info" id="updateBtn">
+						수정<span class="glyphicon glyphicon-ok" style="margin-left: 15px"></span>
+					</button>
+					<button type="submit" class="btn btn-danger" id="cancelBtn">
+						취소<span class="glyphicon glyphicon-remove" style="margin-left: 15px"></span>
+					</button>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>

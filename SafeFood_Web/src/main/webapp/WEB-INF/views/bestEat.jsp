@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*,edu.ssafy.safefood.dto.Food"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,7 @@ function getRecentDate(){
 }
 
 #userInfo {
-	background-color: purple;
+	background-image: url("/resources/img/ice.jpg");
 	color: white;
 	font-size: 3em;
 	font-weight: bold;
@@ -72,28 +73,36 @@ function getRecentDate(){
 }
 
 .body{
-	border-radius: 25px;
-	background-color: antiquewhite;
-	text-align: left;
-	font-size: 20px;
+	border : 1px solid;
+	text-align : center;
+	font-size: 18px;
 	font-weight: bold;
-	padding-left: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 #form{
 	padding: 25px;
 }
+
+#dateLabel{
+	margin-right: 10px;
+}
+
+#outer{
+	margin-top: 5%;
+	min-height: 540px;
+	width: 95%;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="container">
-		<div class="row" id="userInfo">${name}님의 섭취정보</div>
-		<form action="/eat/myEat" method="post" name="form" id="form">
-			<label class="col-md-3" style="font-size: 2em; font-weight: bold">검색 기간 설정</label>
-			<div class="col-md-3">
-				<label for="start">검색 시작일</label>
+	<div class="container" id="outer">
+		<div class="row" id="userInfo">베스트 섭취정보</div>
+		<form action="/eat/bestEat" method="post" name="form" id="form">
+			<label class="col-md-offset-3 col-md-2" style="font-size: 2em; font-weight: bold">검색 기간 설정</label>
+			<div class="col-md-2">
+				<label for="start" class="dateLabel">검색 시작일</label>
 				<c:choose>
 					<c:when test="${start eq null}">
 						<input type="date" name="start" id="start">
@@ -103,8 +112,8 @@ function getRecentDate(){
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<div class="col-md-3">
-				<label for="end">검색 종료일</label>
+			<div class="col-md-2">
+				<label for="end" class="dateLabel">검색 종료일</label>
 				<c:choose>
 					<c:when test="${end eq null}">
 						<input type="date" name="end" id="end">
@@ -120,25 +129,19 @@ function getRecentDate(){
 		</form>
 		<section class="row" id="maincon">
 			<c:forEach items="${eatList}" var="content">
-				<div class="col-md-6" style="margin-bottom: 10px;">
-					<div class="col-md-6 col-lg-4 col-xl-3">
-						<div class="hovereffect">
-							<img class="img-responsive" src="/resources/${content.value.img}"
-								alt="" width="200px">
-							<div class="overlay">
-								<h2 style="margin: 0; margin-top: 5px;">
-									${content.value.name}<br>${content.value.maker}
-								</h2>
-							</div>
+				<div class="col-md-2" style="margin-bottom: 10px;">
+					<div class="hovereffect">
+						<img class="img-responsive" src="/resources/${content.value.img}" alt="" width="180px">
+						<div class="overlay">
+							<h2 style="margin: 0; margin-top: 5px;">
+								${content.value.name}<br>${content.value.maker}
+							</h2>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-8 col-xl-9">
-						<div class="body">
-							<br>
-							섭취 식품 명 : ${content.value.name}<br>
-							섭취 식품 개수 : ${content.key.count}<br>
-							섭취 일자 : ${content.key.date}<br>
-						</div>
+					<div class="body">
+						<br>
+						섭취 식품 명 : ${content.value.name}<br>
+						섭취 식품 개수 : ${content.key.count}<br>
 					</div>
 				</div>
 			</c:forEach>

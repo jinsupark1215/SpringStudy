@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QnA</title>
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+<script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script type="text/javascript">
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+	}
+	
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+	}
+</script>
+<style type="text/css">
+* {
+	font-family: 'Stylish', sans-serif;
+}
+
+#outer {
+	margin-top: 5%;
+	padding: 40px;
+	padding-top: 5px;
+	border: 2px solid;
+}
+
+#signText {
+	font-size: 3em;
+	font-weight: bold;
+	padding-left: 1%;
+}
+
+table thead tr th {
+	text-align: center;
+	font-weight: bold;
+	background-color: white;
+}
+
+#resultTable {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	width: 1100px;
+}
+
+.table {
+	background-color: white;
+	text-align: center;
+}
+
+.data {
+	padding-top: 7px;
+}
+
+.bottom {
+	width: 200px;
+}
+
+#searchForm {
+	display: inline-block;
+	padding: 0;
+}
+
+#searchBtn {
+	float: right;
+	margin-right: 5px;
+	width: 100px;
+}
+
+#searchArea {
+	float: right;
+	height: 32px;
+	margin-right: 10px;
+}
+
+#class {
+	float: right;
+	height: 32px;
+	margin-right: 10px;
+}
+
+.search {
+	float: right;
+}
+
+#footer {
+	background-color: #fafafa;
+	margin-top: 3%;
+	margin-bottom: 0;
+}
+
+#footer li {
+	height: 30px;
+}
+
+#copyright {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+.myGlyp{
+	margin-right: 1%;
+}
+
+.question {
+	margin-left: 30%;
+	width: 70%;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 15px;
+	text-align: left;
+	border-radius: 15px;
+	background-color: antiquewhite;
+}
+
+.answer {
+	width: 70%;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 15px;
+	text-align: left;
+	border-radius: 15px;
+	margin-top: 10px;
+	background-color: lavenderblush;
+}
+
+.qBtns {
+	margin-left: 80%;
+	margin-top: 10px;
+}
+
+.form {
+	padding: 3%;
+    padding-bottom: 1%;
+    border-radius: 15px;
+    background-color: blanchedalmond;
+}
+</style>
+</head>
+<body>
+	<div id="header" v-html='header'></div>
+	<div style="min-height: 530px">
+		<div class="container" id="outer">
+			<h3 id="signText">QnA</h3>
+			<div class="col-md-8" id="resultTable">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>게시순서</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>조회수</th>
+							<th>질문등록일</th>
+							<th>답변등록일</th>
+						</tr>
+					</thead>
+					<tbody v-for='qna in qnas'>
+						<tr>
+							<td v-text="qna.seq"></td>
+							<td><a @click='showDetail(qna.seq)' style="cursor: pointer;">{{qna.title}}</a></td>
+							<td v-text="qna.writer"></td>
+							<td v-html="qna.viewCnt"></td>
+							<td v-text="qna.qDate"></td>
+							<td v-text="qna.aDate"></td>
+						</tr>
+						<tr v-if='viewDetail && seq == qna.seq'>
+							<td colspan="6">
+								<div class="question">
+									<p class="h3" style="margin: 0">Q</p>
+									<div v-text="qna.question" style="padding-left: 20px;"></div>
+									<div v-if='loginId == qna.writer' class="qBtns">
+										<button type="button" class="btn btn-warning" @click="goUpdate">수정</button>
+										<button type="button" class="btn btn-danger" @click='delQna(qna.seq)'>삭제</button>
+									</div>
+								</div>
+								<div class="answer">
+									<p class="h4">A</p>
+									<div v-text="qna.answer" style="padding-left: 20px;"></div>
+									<div v-if='loginId == "admin"' class="qBtns">
+										<template v-if="qna.answer == null ">
+											<button type="button" class="btn btn-info" @click="goAnswer">답변등록</button>
+										</template>
+										<template v-else>
+											<button type="button" class="btn btn-warning" @click="goAnswer">수정</button>
+											<button type="button" class="btn btn-danger" @click='delAns(qna.seq)'>삭제</button>
+										</template>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr v-if="viewUpdate && seq == qna.seq">
+							<td colspan="6">
+								<form class="form form-horizontal" action="" method="post" @submit.prevent="inputCheck(qna.seq)">
+									<div class="form-group has-primary has-feedback">
+										<label class="control-label col-md-2" for="title">제목<span style="color: red"> *</span></label>
+										<div class="col-md-9">
+											<input type="text" class="form-control" name="title" id="title" v-model='qna.title'>
+											<span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+										</div>
+									</div>
+
+									<div class="form-group has-primary has-feedback">
+										<label class="control-label col-md-2" for="content">내용<span style="color: red"> *</span></label>
+										<div class="col-md-9">
+											<textarea class="form-control" rows="5" id="content" name="content" v-model="qna.question"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-offset-8 col-md-3">
+											<button type="submit" class="btn btn-info">
+												등록<span class="glyphicon glyphicon-ok" style="margin-left: 15px"></span>
+											</button>
+											<button type="button" class="btn btn-danger" @click="cancelUpdate">
+												취소<span class="glyphicon glyphicon-remove" style="margin-left: 15px"></span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</td>
+						</tr>
+						<tr v-if="viewAnswer && seq == qna.seq">
+							<td colspan="6">
+								<form class="form form-horizontal" action="" method="post" @submit.prevent="answerCheck(qna.seq)">
+									<div class="form-group has-primary has-feedback">
+										<label class="control-label col-md-2" for="content">내용<span style="color: red"> *</span></label>
+										<div class="col-md-9">
+											<textarea class="form-control" rows="5" id="content" name="content" v-model="qna.answer"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-offset-8 col-md-3">
+											<button type="submit" class="btn btn-info">
+												등록<span class="glyphicon glyphicon-ok" style="margin-left: 15px"></span>
+											</button>
+											<button type="button" class="btn btn-danger" @click="cancelAnswer">
+												취소<span class="glyphicon glyphicon-remove" style="margin-left: 15px"></span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row" style="text-align: center">
+					<button type="button" class="bottom btn btn-info" onclick="location.href = '/'">확인</button>
+					<template v-if='logined'>
+						<button type="button" class="bottom btn btn-success" onclick="location.href = '/resources/html/mkQna.html'">질문등록</button>
+					</template>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-bottom" id="footer">
+		<div class="container">
+			<h3>Find Us</h3>
+			<hr style="margin-bottom: 10px">
+			<ul class="list-unstyled">
+				<li><i class="myGlyp glyphicon glyphicon-map-marker" style="color: #00D8FF;"></i>(SSAFY)서울시 강남구 테헤란로 멀티스퀘어</li>
+				<li><i class="myGlyp glyphicon glyphicon-earphone" style="color: #00D8FF;"></i>1544-9011</li>
+				<li><i class="myGlyp glyphicon glyphicon-envelope" style="color: #00D8FF;"></i>admin@ssafy.com</li>
+			</ul>
+		</div>
+		<div class="container" id="copyright">Copyright by SSAFY. All rights reserved.</div>
+	</nav>
+	<script type="text/javascript">
+		new Vue({
+			el : "#header",
+			data : {
+				header : ''
+			},
+			mounted(){
+				axios
+				.get('/qna/header')
+				.then(response => (this.header = response.data))
+				.catch(error =>{
+					console.log(error)
+				})
+			}
+		});
+		
+		new Vue({
+			el : "#resultTable",
+			data : {
+				qnas : [],
+				seq : 0,
+				loginId : '',
+				logined : false,
+				viewUpdate : false,
+				viewDetail : false,
+				viewAnswer : false
+			},
+			methods : {
+				showDetail : function(param){
+					if(this.seq == param){
+						this.viewDetail = false
+						this.viewUpdate = false
+						this.viewAnswer = false
+						this.seq = 0
+					} else {
+						this.viewDetail = true
+						this.viewAnswer = false
+						this.viewUpdate = false
+						axios
+						.put('/qna/addCnt', {seq : param})
+						.then(response => {
+							if(response.data > 0){
+								var len = this.qnas.length;
+								for(var i = 0; i < len; i++){
+									var tmp = this.qnas[i];
+									if(param == tmp.seq){
+										tmp.viewCnt = response.data;
+									}
+									
+								}
+							}
+						})
+						.catch(error => {
+							console.log(error)
+						})
+						this.seq = param
+					}
+				},
+				delQna : function(param){
+					if (window.confirm("정말 질문을 삭제 하시겠습니까?")) {
+						axios
+						.delete('/qna/delQna/'+ param)
+						.then(response => {
+							if(response.data == 'success'){
+								alert("정상적으로 삭제되었습니다.")
+								location.href='/resources/html/qnaList.html';
+							} else {
+								alert("삭제 도중 오류가 발생하였습니다.")
+								location.href='/resources/html/qnaList.html';
+							}
+						})
+						.catch(error => {
+							console.log(error)
+						})
+					}
+				},
+				goUpdate : function(){
+					this.viewDetail = false
+					this.viewUpdate = true
+				},
+				cancelUpdate : function(){
+					this.viewUpdate = false
+					this.viewDetail = true
+				},
+				inputCheck : function(param){
+					var len = this.qnas.length
+					
+					for(var i = 0; i < len; i++){
+						if(this.qnas[i].seq == param){
+							if(this.qnas[i].title==''){alert('제목은 공백일 수 없습니다.'); return;}
+							if(this.qnas[i].question==''){alert('내용은 공백일 수 없습니다.'); return;}
+							axios
+							.put('/qna/update',{seq : param, title : this.qnas[i].title, question : this.qnas[i].question})
+							.then(response => {
+								if(response.data == 'success'){
+									alert("정상적으로 수정되었습니다.");
+									location.href='/resources/html/qnaList.html';
+								} else {
+									alert("수정이 되지 않았습니다.");
+									location.href='/resources/html/qnaList.html';
+								}
+							})
+							.catch(error => {
+								console.log(error)
+							})
+							break
+						}
+					}
+				},
+				goAnswer : function(){
+					this.viewDetail = false
+					this.viewAnswer = true
+				},
+				cancelAnswer : function(){
+					this.viewAnswer = false
+					this.viewDetail = true
+				},
+				answerCheck : function(param){
+					var len = this.qnas.length
+					
+					for(var i = 0; i < len; i++){
+						if(this.qnas[i].seq == param){
+							if(this.qnas[i].answer == ''){alert('내용은 공백일 수 없습니다.'); return;}
+							axios
+							.put('/qna/answer',{seq : param, answer : this.qnas[i].answer})
+							.then(response => {
+								if(response.data == 'success'){
+									alert("정상적으로 등록되었습니다.");
+									location.href='/resources/html/qnaList.html';
+								} else {
+									alert("등록이 되지 않았습니다.");
+									location.href='/resources/html/qnaList.html';
+								}
+							})
+							.catch(error => {
+								console.log(error)
+							})
+							break
+						}
+					}
+				},
+				delAns : function(param){
+					if (window.confirm("정말 답변을 삭제 하시겠습니까?")) {
+						axios
+						.delete('/qna/delAns/'+ param)
+						.then(response => {
+							if(response.data == 'success'){
+								alert("정상적으로 삭제되었습니다.")
+								location.href='/resources/html/qnaList.html';
+							} else {
+								alert("삭제 도중 오류가 발생하였습니다.")
+								location.href='/resources/html/qnaList.html';
+							}
+						})
+						.catch(error => {
+							console.log(error)
+						})
+					}
+				},
+			},
+			mounted(){
+				axios
+				.get('/qna/getList')
+				.then(response => (this.qnas = response.data))
+				.catch(error => {
+					console.log(error)
+				})
+				
+				axios
+				.get('/qna/loginCheck')
+				.then(response =>{
+					this.loginId = response.data
+					if(this.loginId == ''){
+						return this.logined = false;
+					} else {
+						return this.logined = true;
+					}
+				})
+				.catch(error => {
+					console.log(error)
+				})
+			}
+		});
+	</script>
+</body>
+</html>

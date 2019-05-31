@@ -13,24 +13,19 @@
 	font-family: 'Stylish', sans-serif;
 }
 
-#box {
-	background-color: gray;
-	padding-bottom: 3%;
-}
-
 #outer {
-	background-color: #F5F5F5;
-	border-radius: 20px;
-	margin-top: 3%;
+	margin-top: 7%;
 	padding: 40px;
-	padding-top: 5px;
+	padding-top: 15px;
+	border: 2px solid;
 }
 
 #signText {
 	font-size: 3em;
 	font-weight: bold;
-	color: gray;
-	margin-top: 7%;
+	padding-left: 1%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 fieldset.allergyField {
@@ -52,34 +47,45 @@ legend.allergyField {
 .data {
 	padding-top: 7px;
 }
+
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="row" id="box">
-		<div class="col-md-offset-4 col-md-4" id="outer">
-			<p class="h3 mb-3 font-weight-normal" id="signText">회원 정보 확인</p>
+	<div style="min-height: 490px">
+		<div class="container" id="outer">
+			<h3 class="signText">회원 정보 확인</h3>
 			<form class="form-horizontal" action="#" method="post">
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="id">아이디</label>
 					<div class="data col-md-5" id="id">${id}</div>
 				</div>
-
+	
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="name">이름</label>
 					<div class="data col-md-5" id="name">${name}</div>
 				</div>
-
+				
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label col-md-offset-1 col-md-2" for="birth">생일</label>
+					<div class="data col-md-5" id="birth">${birth}</div>
+				</div>
+				
+				<div class="form-group has-primary has-feedback">
+					<label class="control-label col-md-offset-1 col-md-2" for="성별">성별</label>
+					<div class="data col-md-5" id="gen">${gender}</div>
+				</div>
+	
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="addr">주소</label>
 					<div class="data col-md-5" id="addr">${addr}</div>
 				</div>
-
+	
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="phone">전화번호</label>
 					<div class="data col-md-5" id="phone">${phone}</div>
 				</div>
-
+	
 				<div class="form-group has-primary has-feedback">
 					<label class="control-label col-md-offset-1 col-md-2" for="allergy">알레르기</label>
 					<div class="data col-md-8" id="allergy">
@@ -89,7 +95,7 @@ legend.allergyField {
 						</fieldset>
 					</div>
 				</div>
-
+	
 				<div class="form-group">
 					<div class="col-md-offset-3 col-md-8">
 						<button type="button" class="btn btn-info" onclick="location.href='../'">

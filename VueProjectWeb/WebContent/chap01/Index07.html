@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Project</title>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<div id="first">
+		<div v-text="title"></div>
+		<div v-text="msg"></div>
+		<button v-on:click='change1'>change1</button>
+		<button v-on:click='change2'>change2</button>
+	</div>
+
+	<script type="text/javascript">
+		var model = {
+			title : 'SSAFY',
+			msg : '얍'
+		}
+
+		var app = new Vue({
+			el : '#first',
+			data : model,
+			computed:{
+				change1 : function(){
+					return this.title += ' 만세'
+				},
+				change2 : function(){
+					return this.msg += ' 얍'
+				}
+			},
+			watch:{
+				title : function(newval, oldval){
+					this.msg = oldval + ' --> ' + newval;
+				}
+			}
+		})
+
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

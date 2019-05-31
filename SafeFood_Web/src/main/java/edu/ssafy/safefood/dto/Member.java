@@ -1,8 +1,6 @@
 package edu.ssafy.safefood.dto;
 
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class Member {
 	private String id;
@@ -11,8 +9,10 @@ public class Member {
 	private String addr;
 	private String phone;
 	private String allergy;
+	private char gender;
+	private String birth;
+	private int kpd;
 	private ArrayList<Eat> eat = new ArrayList<Eat>();
-	private Set<Integer> zzim = new TreeSet<Integer>();
 
 	public Member() {
 
@@ -29,13 +29,20 @@ public class Member {
 		this.phone = phone;
 	}
 
-	public Member(String id, String pw, String name, String addr, String phone, String allergy) {
+	public Member(String id, String pw, String name, String addr, String phone, String allergy, char gender, String birth) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.addr = addr;
 		this.phone = phone;
 		this.allergy = allergy;
+		this.gender = gender;
+		this.birth = birth;
+	}
+	
+	public Member(String name, int kpd) {
+		this.name = name;
+		this.kpd = kpd;
 	}
 
 	public String getId() {
@@ -94,18 +101,35 @@ public class Member {
 		this.eat = eat;
 	}
 
-	public void setZzim(Set<Integer> zzim) {
-		this.zzim = zzim;
+	public char getGender() {
+		return gender;
 	}
 
-	public Set<Integer> getZzim() {
-		return zzim;
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public int getKpd() {
+		return kpd;
+	}
+
+	public void setKpd(int kpd) {
+		this.kpd = kpd;
 	}
 
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr + ", phone=" + phone
-				+ ", allergy=" + allergy + "]";
+				+ ", allergy=" + allergy + ", gender=" + gender + ", birth=" + birth + ", kpd=" + kpd + ", eat=" + eat
+				+ "]";
 	}
 
 }

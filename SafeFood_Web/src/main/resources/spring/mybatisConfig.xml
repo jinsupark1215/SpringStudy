@@ -7,5 +7,10 @@
 		<typeAlias alias="member" type="edu.ssafy.safefood.dto.Member"/>
 		<typeAlias alias="food" type="edu.ssafy.safefood.dto.Food"/>
 		<typeAlias alias="eat" type="edu.ssafy.safefood.dto.Eat"/>
+		<typeAlias alias="board" type="edu.ssafy.safefood.dto.Board"/>
+		<typeAlias alias="qna" type="edu.ssafy.safefood.dto.QnA"/>
+		<typeAlias alias="freSearch" type="edu.ssafy.safefood.dto.FreSearch"/>
+		<typeAlias alias="health" type="edu.ssafy.safefood.dto.Health"/>
+		<typeAlias alias="exercise" type="edu.ssafy.safefood.dto.Exercise"/>
 	</typeAliases>
 </configuration>
